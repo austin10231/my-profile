@@ -411,3 +411,92 @@ main {
     display: none;
   }
 }
+
+/* === Contact page custom styles === */
+
+.contact-wrapper {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.contact__intro {
+  margin-top: 0.75rem;
+  margin-bottom: 2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form .btn {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.contact__note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.contact__note a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.contact__note a:hover {
+  text-decoration: underline;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 600px) {
+  .contact-wrapper {
+    margin: 1.5rem 1rem 3rem;
+    padding: 1.8rem 1.4rem;
+  }
+}
