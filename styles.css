@@ -425,9 +425,10 @@ main {
 }
 
 .contact__intro {
-  margin-top: 2.5rem;
-  margin-bottom: 4rem;
-  color: #2978b5;
+  margin-top: 1.25rem;
+  margin-bottom: 0;        /* 不用 bottom margin 了 */
+  padding-bottom: 2.5rem;  /* 间距改成你想要的，比如 2.5rem / 3rem */
+  color: #555;
   line-height: 1.6;
 }
 
@@ -511,12 +512,6 @@ main {
 .lang-btn {
   margin-left: 20px; /* 推荐间距，可调大/小 */
 }
-
-/* Extra spacing below contact intro text */
-#contact .contact__intro {
-  margin-bottom: 3.5rem;   /* 想更大就改成 4rem、4.5rem 都可以 */
-}
-
 
 
 /* 小屏幕适配 */
