@@ -61,3 +61,42 @@ const scrollUp = () => {
 }
 
 document.addEventListener('scroll', scrollUp)
+
+// ---------------------------
+// 🔤 Language Toggle
+// ---------------------------
+
+const translations = {
+  en: {
+    nav_projects: "PROJECTS",
+    nav_skills: "SKILLS",
+    nav_contact: "CONTACT",
+  },
+  zh: {
+    nav_projects: "项目",
+    nav_skills: "技能",
+    nav_contact: "联系",
+  }
+};
+
+let currentLang = "en";
+
+function applyTranslations(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const text = translations[lang][key];
+    if (text) el.textContent = text;
+  });
+}
+
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "zh" : "en";
+  applyTranslations(currentLang);
+
+  document.getElementById("lang-toggle").textContent =
+    currentLang === "en" ? "中文" : "EN";
+});
+
+// 初始化翻译
+applyTranslations(currentLang);
+
