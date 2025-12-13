@@ -512,6 +512,12 @@ main {
   margin-left: 20px; /* 推荐间距，可调大/小 */
 }
 
+/* Extra spacing below contact intro text */
+#contact .contact__intro {
+  margin-bottom: 3.5rem;   /* 想更大就改成 4rem、4.5rem 都可以 */
+}
+
+
 
 /* 小屏幕适配 */
 @media (max-width: 600px) {
