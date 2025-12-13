@@ -130,7 +130,7 @@ button {
 
 .link--nav {
   color: var(--clr-fg);
-  text-transform: capitalize !important;
+  text-transform: lowercase;
   font-weight: 500;
 }
 
@@ -144,7 +144,7 @@ button {
   padding: 0.8em 1.4em;
   font-weight: 500;
   font-size: 0.9rem;
-  text-transform: lowercase;
+  text-transform: capitalize;
   transition: transform 0.2s ease-in-out;
 }
 
