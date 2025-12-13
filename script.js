@@ -127,6 +127,10 @@ const translations = {
 	contact_button_send: "Send message",
 	contact_note_prefix: "Prefer email? You can also reach me directly at",
 
+	contact_ph_name: "Enter your full name",
+    contact_ph_email: "your@email.com",
+    contact_ph_message: "Tell me a bit about what you'd like to discuss...",
+
     // footer
     footer_text: "Created By Mutian He",
   },
@@ -177,6 +181,10 @@ const translations = {
 	contact_label_message: "留言内容",
 	contact_button_send: "发送消息",
 	contact_note_prefix: "更喜欢直接邮件？你也可以发送到",
+
+	contact_ph_name: "请输入你的姓名",
+    contact_ph_email: "请输入你的邮箱地址",
+    contact_ph_message: "请简单描述你想沟通的内容……",
 	
     // footer
     footer_text: "由何沐天制作",
@@ -192,10 +200,19 @@ let currentLang = "en";
 // 把页面上所有 data-i18n 的元素替换文本
 function applyTranslations(lang) {
   const dict = translations[lang] || {};
+
+  // 1. 普通文本（之前就有）
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const text = dict[key];
     if (text) el.textContent = text;
+  });
+
+  // 2. 表单 placeholder
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const text = dict[key];
+    if (text) el.setAttribute("placeholder", text);
   });
 }
 
