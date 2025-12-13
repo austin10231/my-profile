@@ -130,7 +130,7 @@ button {
 
 .link--nav {
   color: var(--clr-fg);
-  text-transform: capitalize;
+  text-transform: capitalize !important;
   font-weight: 500;
 }
 
