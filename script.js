@@ -103,6 +103,14 @@ const translations = {
 	contact_title: "CONTACT",
 	btn_email: "Email me",
 
+	contact_title_page: "CONTACT",
+	contact_intro: "If you'd like to get in touch, feel free to leave your info and a short message.",
+	contact_label_name: "Your Name",
+	contact_label_email: "Your Email",
+	contact_label_message: "Message",
+	contact_button_send: "Send message",
+	contact_note_prefix: "Prefer email? You can also reach me directly at",
+
     // footer
     footer_text: "Created By Mutian He",
   },
@@ -143,6 +151,13 @@ const translations = {
 	contact_title: "联系",
 	btn_email: "给我发邮件",
 
+	contact_title_page: "联系我",
+	contact_intro: "如果你想联系我，可以在这里留下你的信息和简短留言。",
+	contact_label_name: "你的名字",
+	contact_label_email: "你的邮箱",
+	contact_label_message: "留言内容",
+	contact_button_send: "发送消息",
+	contact_note_prefix: "更喜欢直接邮件？你也可以发送到",
 	
     // footer
     footer_text: "由何沐天制作",
