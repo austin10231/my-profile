@@ -195,7 +195,7 @@ function updateLangToggleLabel() {
 // 设置语言：更新变量 + 保存到 localStorage + 应用翻译 + 改按钮文字
 function setLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem(LANG_STORAGE_KEY, lang);
+  localStorage.setItem("lang", lang);
   applyTranslations(lang);
   updateLangToggleLabel();
 }
