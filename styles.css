@@ -438,6 +438,11 @@ main {
   gap: 0.75rem;
 }
 
+/* 让简介文字和第一行表单之间空一点 */
+.contact-form .form-row:first-of-type {
+  margin-top: 1.5rem;
+}
+
 .form-row {
   display: flex;
   flex-direction: column;
