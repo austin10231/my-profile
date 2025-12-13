@@ -1,17 +1,26 @@
-const body = document.body
+const body = document.body;
+const btnTheme = document.querySelector('.fa-moon');
+const btnHamburger = document.querySelector('.fa-bars');
 
-const btnTheme = document.querySelector('.fa-moon')
-const btnHamburger = document.querySelector('.fa-bars')
-
+// 给 body 和主题按钮加 class，注意这里都加了保护
 const addThemeClass = (bodyClass, btnClass) => {
-  body.classList.add(bodyClass)
-  btnTheme.classList.add(btnClass)
+  // 有值才给 body 加 class
+  if (bodyClass) {
+    body.classList.add(bodyClass);
+  }
+  // 只有当前页面真的有 .fa-moon，并且有按钮 class 的时候才加
+  if (btnTheme && btnClass) {
+    btnTheme.classList.add(btnClass);
+  }
+};
+
+const getBodyTheme = localStorage.getItem('portfolio-theme');
+const getBtnTheme = localStorage.getItem('portfolio-btn-theme');
+
+// 只有首页这种有 .fa-moon 的页面才执行主题初始化
+if (btnTheme) {
+  addThemeClass(getBodyTheme, getBtnTheme);
 }
-
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
-
-addThemeClass(getBodyTheme, getBtnTheme)
 
 const isDark = () => body.classList.contains('dark')
 
@@ -29,7 +38,9 @@ const setTheme = (bodyClass, btnClass) => {
 const toggleTheme = () =>
 	isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
 
-btnTheme.addEventListener('click', toggleTheme)
+if (btnTheme) {
+  btnTheme.addEventListener('click', toggleTheme);
+}
 
 const displayList = () => {
 	const navUl = document.querySelector('.nav__list')
@@ -45,7 +56,9 @@ const displayList = () => {
 	}
 }
 
-btnHamburger.addEventListener('click', displayList)
+if (btnHamburger) {
+  btnHamburger.addEventListener('click', displayList);
+}
 
 const scrollUp = () => {
 	const btnScrollTop = document.querySelector('.scroll-top')
