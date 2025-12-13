@@ -201,13 +201,10 @@ function setLanguage(lang) {
   updateLangToggleLabel();
 }
 
-// 页面加载完：
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. 先读之前保存的语言（默认 en）
+function initI18n() {
   const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
   setLanguage(savedLang);
 
-  // 2. 如果当前页上有切换按钮，就给它加点击事件（index.html 有，contact.html 没有）
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
     langToggle.addEventListener("click", () => {
@@ -215,6 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(nextLang);
     });
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initI18n);
+} else {
+  // DOM 已经 ready 了，直接执行
+  initI18n();
+}
+
 
 
