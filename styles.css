@@ -489,14 +489,12 @@ main {
   text-decoration: none;
 }
 
-.contact__note a:hover {
-  text-decoration: underline;
-}
+
 
 /* Back to Home link styling */
 .back-link,
 .back-link:visited {      /* 把 visited 一起写上 */
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: #2978b5;       /* 你想要的那种蓝色 */
     text-decoration: none;
