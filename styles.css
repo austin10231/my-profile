@@ -498,7 +498,7 @@ main {
 .back-link:visited {      /* 把 visited 一起写上 */
     font-size: 1.2rem;
     font-weight: 600;
-    color: #4f46e5;       /* 你想要的那种蓝色 */
+    color: #2978b5;       /* 你想要的那种蓝色 */
     text-decoration: none;
     margin: 1rem 0 2rem 1rem;
     display: inline-block;
