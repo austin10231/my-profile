@@ -168,8 +168,9 @@ const translations = {
   }
 };
 // -------------------- i18n logic --------------------
+// ---------------- i18n logic ----------------
 
-// localStorage 保存语言用的 key
+// LocalStorage key
 const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
 
@@ -179,33 +180,32 @@ function applyTranslations(lang) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const text = dict[key];
-    if (text) {
-      el.textContent = text;
-    }
+    if (text) el.textContent = text;
   });
 }
 
-// 根据当前语言更新按钮文字（en 时显示“中文”，zh 时显示“EN”）
+// 根据当前语言更新右上角“中文 / EN”按钮文字（contact 页面没有按钮时直接 return）
 function updateLangToggleLabel() {
   const langToggle = document.getElementById("lang-toggle");
-  if (!langToggle) return; // contact 页没有按钮就直接跳过
+  if (!langToggle) return;
   langToggle.textContent = currentLang === "en" ? "中文" : "EN";
 }
 
-// 设置语言：更新变量 + 保存到 localStorage + 应用翻译 + 改按钮文字
+// 设置语言：更新变量 + 存储 localStorage + 应用翻译 + 改按钮字
 function setLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem("lang", lang);
+  localStorage.setItem(LANG_STORAGE_KEY, lang);
   applyTranslations(lang);
   updateLangToggleLabel();
 }
 
+// 页面加载完：
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. 页面加载时，先读一下之前保存的语言（默认 en）
+  // 1. 先读之前保存的语言（默认 en）
   const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
   setLanguage(savedLang);
 
-  // 2. 如果页面上有切换按钮，就给它加点击事件
+  // 2. 如果当前页上有切换按钮，就给它加点击事件（index.html 有，contact.html 没有）
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
     langToggle.addEventListener("click", () => {
@@ -214,4 +214,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
