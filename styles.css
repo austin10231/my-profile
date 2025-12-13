@@ -416,7 +416,7 @@ main {
 
 .contact-wrapper {
   max-width: 640px;
-  margin: 1.0rem auto;
+  margin: 0.3rem auto;
   padding: 2.5rem 2rem;
   background: #ffffff;
   border-radius: 14px;
@@ -425,7 +425,7 @@ main {
 }
 
 .contact__intro {
-  margin-top: 0.75rem;
+  margin-top: 1.25rem;
   margin-bottom: 2rem;
   color: #555;
   line-height: 1.6;
