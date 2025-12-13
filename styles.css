@@ -496,8 +496,8 @@ main {
 /* Back to Home link styling */
 .back-link,
 .back-link:visited {      /* 把 visited 一起写上 */
-    font-size: 2.0rem;
-    font-weight: 600;
+    font-size: 1.7rem;
+    font-weight: 500;
     color: #2978b5;       /* 你想要的那种蓝色 */
     text-decoration: none;
     margin: 1rem 0 2rem 1rem;
