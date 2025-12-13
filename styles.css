@@ -493,6 +493,21 @@ main {
   text-decoration: underline;
 }
 
+/* Back to Home link styling */
+.back-link {
+    font-size: 1.2rem;     /* ⬆ 字体变大 */
+    font-weight: 600;      /* ⬆ 字体加粗 */
+    color: #4f46e5;        /* ⬆ 和主页一致的蓝色 */
+    text-decoration: none;
+    margin: 1rem 0 2rem 1rem; /* ⬆ 调整位置，让它更显眼 */
+    display: inline-block;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
 /* Language toggle spacing */
 .lang-btn {
   margin-left: 20px; /* 推荐间距，可调大/小 */
