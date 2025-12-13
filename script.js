@@ -103,6 +103,8 @@ const translations = {
 	contact_title: "CONTACT",
 	btn_email: "Email me",
 
+	back_home: "← Back to Home",
+	  
 	contact_title_page: "CONTACT",
 	contact_intro: "If you'd like to get in touch, feel free to leave your info and a short message.",
 	contact_label_name: "Your Name",
@@ -147,6 +149,8 @@ const translations = {
       "使用 Python 分析超过 22.8 万条 Spotify 播客数据，进行 EDA 与特征工程，并构建随机森林模型预测 Top 10 播客。",
 
 	skills_title: "技能",
+
+	back_home: "← 返回首页",
 	  
 	contact_title: "联系",
 	btn_email: "给我发邮件",
