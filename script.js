@@ -163,25 +163,51 @@ const translations = {
     footer_text: "由何沐天制作",
   }
 };
+// -------------------- i18n logic --------------------
 
+// localStorage 保存语言用的 key
+const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
 
+// 把页面上所有 data-i18n 的元素替换文本
 function applyTranslations(lang) {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
+  const dict = translations[lang] || {};
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const text = translations[lang][key];
-    if (text) el.textContent = text;
+    const text = dict[key];
+    if (text) {
+      el.textContent = text;
+    }
   });
 }
 
-document.getElementById("lang-toggle").addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "zh" : "en";
-  applyTranslations(currentLang);
+// 根据当前语言更新按钮文字（en 时显示“中文”，zh 时显示“EN”）
+function updateLangToggleLabel() {
+  const langToggle = document.getElementById("lang-toggle");
+  if (!langToggle) return; // contact 页没有按钮就直接跳过
+  langToggle.textContent = currentLang === "en" ? "中文" : "EN";
+}
 
-  document.getElementById("lang-toggle").textContent =
-    currentLang === "en" ? "中文" : "EN";
+// 设置语言：更新变量 + 保存到 localStorage + 应用翻译 + 改按钮文字
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem(LANG_STORAGE_KEY, lang);
+  applyTranslations(lang);
+  updateLangToggleLabel();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. 页面加载时，先读一下之前保存的语言（默认 en）
+  const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+  setLanguage(savedLang);
+
+  // 2. 如果页面上有切换按钮，就给它加点击事件
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      const nextLang = currentLang === "en" ? "zh" : "en";
+      setLanguage(nextLang);
+    });
+  }
 });
-
-// 初始化翻译
-applyTranslations(currentLang);
 
