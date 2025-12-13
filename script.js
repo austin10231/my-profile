@@ -98,6 +98,11 @@ const translations = {
     proj3_desc:
       "Analyzed a dataset of more than 228K Spotify podcast episodes using Python. Conducted EDA, feature engineering, and built a Random Forest model to predict Top 10 podcast episodes.",
 
+	skills_title: "SKILLS",
+	  
+	contact_title: "CONTACT",
+	btn_email: "Email me",
+
     // footer
     footer_text: "Created By Mutian He",
   },
@@ -133,6 +138,12 @@ const translations = {
     proj3_desc:
       "使用 Python 分析超过 22.8 万条 Spotify 播客数据，进行 EDA 与特征工程，并构建随机森林模型预测 Top 10 播客。",
 
+	skills_title: "技能",
+	  
+	contact_title: "联系",
+	btn_email: "给我发邮件",
+
+	
     // footer
     footer_text: "由何沐天制作",
   }
