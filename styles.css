@@ -493,6 +493,12 @@ main {
   text-decoration: underline;
 }
 
+/* Language toggle spacing */
+.lang-btn {
+  margin-left: 20px; /* 推荐间距，可调大/小 */
+}
+
+
 /* 小屏幕适配 */
 @media (max-width: 600px) {
   .contact-wrapper {
