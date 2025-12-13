@@ -74,7 +74,8 @@ const translations = {
     nav_contact: "CONTACT",
 
     // about
-    about_title: "Hi, I am Mutian He",
+    about_title_prefix: "Hi, I am ",
+  	about_title_name: "Mutian He",
     about_role: "Data Scientist & ML Engineer",
     about_desc:
       "Combining data science and machine learning techniques to uncover patterns, improve predictions, and transform information into actionable solutions. Focused on applying intelligent models to real-world challenges and enhancing decision-making through clear, data-driven insights.",
@@ -124,7 +125,8 @@ const translations = {
     nav_contact: "联系",
 
     // about
-    about_title: "嗨，我是 何沐天",
+    about_title_prefix: "你好，我是",
+  	about_title_name: "何沐天",
     about_role: "数据科学家 & 机器学习工程师",
     about_desc:
       "结合数据科学与机器学习技术，挖掘数据模式、提升预测能力，并将信息转化为可执行的解决方案。专注于将智能模型应用于真实世界的问题，通过清晰的数据洞察增强决策能力。",
