@@ -112,6 +112,11 @@ const translations = {
     proj3_desc:
       "Analyzed a dataset of more than 228K Spotify podcast episodes using Python. Conducted EDA, feature engineering, and built a Random Forest model to predict Top 10 podcast episodes.",
 
+	// project 4
+	proj4_title: "Airbnb ML Price & Trust Modeling",
+	proj4_desc:
+		"Built and evaluated machine learning models to predict Airbnb listing prices and host trust scores using numerical, categorical, and text features. Performed feature engineering, cross-validation, and multi-model comparison, and applied model interpretability techniques to analyze key pricing drivers and prediction errors.",
+
 	skills_title: "SKILLS",
 	  
 	contact_title: "CONTACT",
@@ -166,6 +171,11 @@ const translations = {
     proj3_title: "Spotify 播客 Top10 数据分析",
     proj3_desc:
       "使用 Python 分析超过 22.8 万条 Spotify 播客数据，进行 EDA 与特征工程，并构建随机森林模型预测 Top 10 播客。",
+
+	// project 4
+    proj4_title: "Airbnb 房源价格与信任评分建模",
+    proj4_desc:
+      "构建并评估机器学习模型，用于预测 Airbnb 房源价格与房东信任评分。使用数值型、类别型和文本型特征进行建模，完成特征工程、交叉验证和多模型对比，并通过模型可解释性方法分析关键定价因素及预测误差来源。",
 
 	skills_title: "技能",
 
