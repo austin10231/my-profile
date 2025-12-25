@@ -318,6 +318,10 @@ main {
   margin-top: 1em;
 }
 
+.projects__grid .project:nth-child(2) .project__description {
+  margin-top: 1.6em;
+}
+
 .project__stack {
   display: flex;
   flex-wrap: wrap;
