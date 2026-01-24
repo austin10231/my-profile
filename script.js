@@ -89,7 +89,7 @@ const translations = {
     // about
     about_title_prefix: "Hi, I am ",
   	about_title_name: "Mutian He",
-    about_role: "Data Scientist & ML Engineer",
+    about_role: "Machine Learning & Data Science",
     about_desc:
       "Master’s student in Information Systems at Santa Clara University, with a bachelor’s degree from the University of Glasgow. Strong interest in machine learning and data analytics, and passionate about turning raw data into meaningful insights. Skilled in Python and SQL, with hands-on experience in data cleaning, analysis, and building end-to-end analytical workflows. Enjoy working with real-world datasets and continuously learning new techniques to improve data-driven decision making.",
     btn_resume: "Resume",
@@ -149,7 +149,7 @@ const translations = {
     // about
     about_title_prefix: "你好，我是",
   	about_title_name: "何沐天",
-    about_role: "数据科学家 & 机器学习工程师",
+    about_role: "机器学习 & 数据科学",
     about_desc:
       "圣塔克拉拉大学信息系统硕士在读，本科毕业于格拉斯哥大学。对机器学习和数据分析具有浓厚兴趣，热衷于将原始数据转化为有价值的洞察。熟练使用 Python 和 SQL，具备数据清洗、数据分析以及端到端分析流程构建的实践经验。乐于处理真实世界数据集，并持续学习新技术，以提升数据驱动决策能力。",
     btn_resume: "简历",
