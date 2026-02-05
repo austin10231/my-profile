@@ -102,20 +102,20 @@ const translations = {
     proj1_desc:
       "Designed a high-level architecture for an internal Jenkins-as-a-Service CI/CD platform. Built workflows, user stories, and pipeline diagrams; proposed RBAC security model and collaborated in Agile to deliver technical documentation.",
 
-    // project 2
-    proj2_title: "Smart Parking App",
-    proj2_desc:
-      "A full system design for a Smart Parking mobile application, covering requirements, use cases, UML diagrams, state models, UI screens, and cost-benefit analysis.",
-
-    // project 3
-    proj3_title: "Top Spotify Podcast Episodes – Data Analysis",
-    proj3_desc:
-      "Analyzed a dataset of more than 228K Spotify podcast episodes using Python. Conducted EDA, feature engineering, and built a Random Forest model to predict Top 10 podcast episodes.",
-
+	// project 2
+	proj2_title: "End-to-End Instacart Reorder Prediction System",
+	proj2_desc:
+	"An end-to-end machine learning pipeline for predicting user reorder behavior on the Instacart platform. The project focuses on data engineering and ML workflow design, including ETL, feature aggregation, temporal data splitting, model training, and inference. A Random Forest model was trained on user–product interaction data, with emphasis on preventing data leakage and building a reproducible, production-oriented pipeline.",
+	
+	// project 3
+	proj3_title: "Intelligent Job Description Analyzer",
+	proj3_desc:
+	"Developed an NLP-based system to transform unstructured job descriptions into structured insights, including required skills, education, and seniority level. The project focuses on text processing, modular extractor design, and end-to-end ML workflow, enabling real-time analysis of both raw job text and job posting URLs.",
+	
 	// project 4
-	proj4_title: "Airbnb ML Price & Trust Modeling",
+	proj4_title: "Real-time Flight Delay Prediction System",
 	proj4_desc:
-		"Built and evaluated machine learning models to predict Airbnb listing prices and host trust scores using numerical, categorical, and text features. Performed feature engineering, cross-validation, and multi-model comparison, and applied model interpretability techniques to analyze key pricing drivers and prediction errors.",
+	"Developed an end-to-end machine learning system to predict flight delays using high-cardinality categorical features such as airline carriers and origin–destination pairs. The project focuses on production-oriented ML engineering, including feature processing, model training with CatBoost, and real-time inference through an interactive web interface.",
 
 	skills_title: "SKILLS",
 	  
@@ -162,20 +162,20 @@ const translations = {
     proj1_desc:
       "为内部 Jenkins CI/CD 平台设计高层架构，编写工作流程、用户故事和流水线图，提出 RBAC 安全模型，并在敏捷开发中协作完成技术文档。",
 
-    // project 2
-    proj2_title: "智能停车 App",
-    proj2_desc:
-      "一套完整的智能停车移动应用系统设计，包括需求分析、用例图、UML 图、状态模型、界面原型和成本收益分析。",
-
-    // project 3
-    proj3_title: "Spotify 播客 Top10 数据分析",
-    proj3_desc:
-      "使用 Python 分析超过 22.8 万条 Spotify 播客数据，进行 EDA 与特征工程，并构建随机森林模型预测 Top 10 播客。",
-
+	// project 2
+	proj2_title: "端到端 Instacart 用户复购预测系统",
+	proj2_desc:
+	"一个用于预测 Instacart 用户复购行为的端到端机器学习系统，重点关注数据工程与 ML 流程设计。项目涵盖 ETL、特征聚合、时间切分、模型训练与推理，并通过严格的时间划分防止数据泄露，构建了一个可复现、面向生产环境的机器学习管道。",
+	
+	// project 3
+	proj3_title: "智能职位描述分析系统",
+	proj3_desc:
+	"基于自然语言处理的职位描述分析系统，用于将非结构化的岗位文本转化为结构化信息，包括技能要求、学历背景和岗位资历等级。项目重点在于文本处理、模块化抽取器设计，以及端到端 ML 工作流，实现对职位文本和岗位链接的实时分析。",
+	
 	// project 4
-    proj4_title: "Airbnb 房源价格与信任评分建模",
-    proj4_desc:
-      "构建并评估机器学习模型，用于预测 Airbnb 房源价格与房东信任评分。使用数值型、类别型和文本型特征进行建模，完成特征工程、交叉验证和多模型对比，并通过模型可解释性方法分析关键定价因素及预测误差来源。",
+	proj4_title: "实时航班延误预测系统",
+	proj4_desc:
+	"构建了一个用于航班延误预测的端到端机器学习系统，针对航空公司、起降机场等高基数类别特征进行建模。项目聚焦于生产级 ML 工程实践，包括特征处理、基于 CatBoost 的模型训练，以及通过交互式 Web 界面实现实时推理。",
 
 	skills_title: "技能",
 
