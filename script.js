@@ -137,7 +137,7 @@ const translations = {
     contact_ph_message: "Tell me a bit about what you'd like to discuss...",
 
     // footer
-    footer_text: "© 2025 Mutian He",
+    footer_text: "© 2026 Mutian He",
   },
 
   zh: {
@@ -197,7 +197,7 @@ const translations = {
     contact_ph_message: "请简单描述你想沟通的内容……",
 	
     // footer
-    footer_text: "© 2025 何沐天",
+    footer_text: "© 2026 何沐天",
   }
 };
 // -------------------- i18n logic --------------------
