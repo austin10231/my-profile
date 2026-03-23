@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="light" id="top">
+  <header class="header center">
+    <a href="index.html" class="link back-link" data-i18n="back_home">
+      ← Back to Home
+    </a>
+  </header>
+
+<main>
+  <section class="section contact center" id="contact">
+    <div class="contact-wrapper">
+
+      <!-- Contact Title -->
+      <h2 class="section__title" data-i18n="contact_title_page">Contact</h2>
+
+      <!-- Intro text -->
+      <p class="contact_intro" data-i18n="contact_intro">
+        If you'd like to get in touch, feel free to leave your info and a short message.
+      </p>
+
+      <!-- Contact Form -->
+      <form
+        action="https://formspree.io/f/xwpgaped"
+        method="POST"
+        class="contact-form"
+      >
+        <!-- Name Row -->
+        <div class="form-row">
+          <label for="name" data-i18n="contact_label_name">Your Name</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            data-i18n-placeholder="contact_ph_name"
+            required
+          />
+        </div>
+
+        <!-- Email Row -->
+        <div class="form-row">
+          <label for="email" data-i18n="contact_label_email">Your Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            data-i18n-placeholder="contact_ph_email"
+            required
+          />
+        </div>
+
+        <!-- Message Row -->
+        <div class="form-row">
+          <label for="message" data-i18n="contact_label_message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell me a bit about what you'd like to discuss..."
+            data-i18n-placeholder="contact_ph_message"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn--outline" data-i18n="contact_button_send">
+          Send message
+        </button>
+      </form>
+
+      <!-- Bottom Note -->
+      <p class="contact__note">
+        <span data-i18n="contact_note_prefix">
+          Prefer email? You can also reach me directly at
+        </span>
+        <a href="mailto:austin10231@outlook.com">austin10231@outlook.com</a>.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+  <script src="script.js"></script>
+</body>
+</html>
