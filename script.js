@@ -269,7 +269,7 @@ const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
 const resumeByLang = {
   en: encodeURI("Mutian He DE:DS Resume.pdf"),
-  zh: encodeURI("何沐天中文简历.pdf")
+  zh: "Mutian-He-Resume-CN.pdf"
 };
 
 // 把页面上所有 data-i18n 的元素替换文本
@@ -332,4 +332,3 @@ if (document.readyState === "loading") {
   // DOM 已经 ready 了，直接执行
   initI18n();
 }
-
