@@ -267,6 +267,10 @@ const translations = {
 // LocalStorage key
 const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
+const resumeByLang = {
+  en: encodeURI("Mutian He DE:DS Resume.pdf"),
+  zh: encodeURI("何沐天中文简历.pdf")
+};
 
 // 把页面上所有 data-i18n 的元素替换文本
 function applyTranslations(lang) {
@@ -294,11 +298,18 @@ function updateLangToggleLabel() {
   langToggle.textContent = currentLang === "en" ? "中文" : "EN";
 }
 
+function updateResumeLink(lang) {
+  const resumeLink = document.getElementById("resume-link");
+  if (!resumeLink) return;
+  resumeLink.setAttribute("href", resumeByLang[lang] || resumeByLang.en);
+}
+
 // 设置语言：更新变量 + 存储 localStorage + 应用翻译 + 改按钮字
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem(LANG_STORAGE_KEY, lang);
   applyTranslations(lang);
+  updateResumeLink(lang);
   updateLangToggleLabel();
 }
 
@@ -321,5 +332,4 @@ if (document.readyState === "loading") {
   // DOM 已经 ready 了，直接执行
   initI18n();
 }
-
 
