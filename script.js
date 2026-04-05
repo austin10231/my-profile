@@ -108,7 +108,7 @@ const translations = {
     projects_title: "PROJECTS",
 
     // projects
-    proj1_title: "SEC 10-K Risk Change Alert System",
+    proj1_title: "FinSight AI",
 	proj1_tag: "Cloud & AI Engineering",
 	proj1_desc:
   	  "Engineered an end-to-end document intelligence pipeline parsing SEC 10-K filings (HTML + PDF) via BeautifulSoup and AWS Textract, extracting and structuring Risk Factor disclosures into standardized JSON. Integrated AWS Bedrock (Nova Lite) to auto-classify risks into 13 categories and generate executive-level summaries, enabling AI-powered year-over-year and cross-company risk comparison.",
@@ -137,8 +137,18 @@ const translations = {
 	proj6_tag: "ML Engineering",
 	proj6_desc:
   	  "Developed an end-to-end machine learning system to predict flight delays using high-cardinality categorical features such as airline carriers and origin–destination pairs. Focuses on production-oriented ML engineering, including feature processing, model training with CatBoost, and real-time inference through an interactive web interface.",
-	
-	  skills_title: "SKILLS",
+
+	proj7_title: "Multimodal Image Search Engine",
+	proj7_tag: "Multimodal ML",
+	proj7_desc:
+	  "Built a CLIP-based multimodal retrieval system for text-to-image search by projecting images and text queries into a shared embedding space. Designed the full pipeline from data preprocessing and batch embedding generation to FAISS ANN indexing, and evaluated retrieval quality with Recall@1/5/10 and Median Rank.",
+
+	proj8_title: "Jenkins as a Service (JaaS)",
+	proj8_tag: "DevOps Platform Engineering",
+	proj8_desc:
+	  "Designed an enterprise Jenkins-as-a-Service platform to replace fragmented CI/CD tooling across teams. Standardized pipeline templates, centralized RBAC and audit logging, and planned rollback-oriented release workflows on VMware to improve delivery reliability, security compliance, and operating efficiency.",
+		
+		  skills_title: "SKILLS",
 	  
 	contact_title: "CONTACT",
 	btn_email: "Email me",
@@ -189,7 +199,7 @@ const translations = {
     projects_title: "项目展示",
 
     // project 1
-    proj1_title: "SEC 10-K 风险变化智能分析系统",
+    proj1_title: "FinSight AI（SEC 10-K 风险变化智能分析系统）",
 	proj1_tag: "云计算 & AI 工程",
 	proj1_desc:
   	  "构建端到端文档智能处理管道，通过 BeautifulSoup 和 AWS Textract 解析 SEC 10-K 文件（HTML + PDF），将风险披露内容结构化为标准 JSON。集成 AWS Bedrock（Nova Lite）自动将风险分类至 13 个类别并生成高管级摘要，实现 AI 驱动的跨年度与跨公司风险对比分析。",
@@ -217,8 +227,18 @@ const translations = {
 	proj6_title: "实时航班延误预测系统",
 	proj6_tag: "ML 工程",
 	proj6_desc:
-	  "构建用于航班延误预测的端到端机器学习系统，针对航空公司、起降机场等高基数类别特征进行建模。聚焦生产级 ML 工程实践，包括特征处理、基于 CatBoost 的模型训练，以及通过交互式 Web 界面实现实时推理。",
-	skills_title: "技能",
+		  "构建用于航班延误预测的端到端机器学习系统，针对航空公司、起降机场等高基数类别特征进行建模。聚焦生产级 ML 工程实践，包括特征处理、基于 CatBoost 的模型训练，以及通过交互式 Web 界面实现实时推理。",
+
+	proj7_title: "多模态图像搜索引擎",
+	proj7_tag: "多模态机器学习",
+	proj7_desc:
+		  "基于 CLIP 构建文本驱动图像检索系统，将图像与文本查询映射到共享 embedding 空间进行相似度匹配。设计了从数据预处理、批量 embedding 生成到 FAISS ANN 向量索引的完整流程，并通过 Recall@1/5/10 与 Median Rank 评估检索效果。",
+
+	proj8_title: "Jenkins 即服务平台（JaaS）",
+	proj8_tag: "DevOps 平台工程",
+	proj8_desc:
+		  "面向企业设计 Jenkins as a Service（JaaS）平台，用统一 CI/CD 流程替代分散的 CircleCI/GitLab/GitHub Actions。通过标准化流水线模板、集中式 RBAC 与审计日志、以及面向回滚的发布流程（基于 VMware 运行），提升发布稳定性、安全合规与运维效率。",
+		skills_title: "技能",
 
 	back_home: "← 返回首页",
 	  
@@ -301,6 +321,5 @@ if (document.readyState === "loading") {
   // DOM 已经 ready 了，直接执行
   initI18n();
 }
-
 
 
