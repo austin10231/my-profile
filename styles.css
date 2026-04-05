@@ -348,6 +348,7 @@ main {
 .project {
   padding: 1.8em 2em;
   box-shadow: var(--shadow);
+  border-radius: 16px;
   transition: transform 0.2s linear;
   display: flex;
   flex-direction: column;
