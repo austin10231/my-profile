@@ -363,7 +363,7 @@ Object.assign(translations.zh, {
 const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
 const resumeByLang = {
-  en: encodeURI("Mutian He DE:DS Resume.pdf"),
+  en: encodeURI("Mutian He Resume.pdf"),
   zh: "Mutian-He-Resume-CN.pdf"
 };
 
