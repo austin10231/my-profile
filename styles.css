@@ -143,8 +143,8 @@ body.page-transitioning {
   --clr-fg: #555;
   --clr-fg-alt: #444;
   --clr-primary: #2978b5;
-  --clr-surface: rgba(255, 255, 255, 0.68);
-  --clr-surface-strong: rgba(255, 255, 255, 0.82);
+  --clr-surface: rgba(255, 255, 255, 0.02);
+  --clr-surface-strong: rgba(255, 255, 255, 0.04);
   --clr-border-soft: rgba(41, 120, 181, 0.2);
   --clr-meta-bg: rgba(41, 120, 181, 0.11);
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -156,8 +156,8 @@ body.page-transitioning {
   --clr-fg: #bdbddd;
   --clr-fg-alt: #cdcdff;
   --clr-primary: #90a0d9;
-  --clr-surface: rgba(42, 47, 76, 0.72);
-  --clr-surface-strong: rgba(42, 47, 76, 0.86);
+  --clr-surface: rgba(42, 47, 76, 0.18);
+  --clr-surface-strong: rgba(42, 47, 76, 0.24);
   --clr-border-soft: rgba(144, 160, 217, 0.26);
   --clr-meta-bg: rgba(144, 160, 217, 0.14);
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -415,12 +415,12 @@ main {
 .about__seeking-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.35rem 0.9rem;
+  padding: 0.46rem 1.05rem;
   border-radius: 999px;
   border: 1px solid rgba(41, 120, 181, 0.35);
   background: rgba(41, 120, 181, 0.08);
   color: #2978b5;
-  font-size: 0.83rem;
+  font-size: 0.96rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -435,29 +435,29 @@ main {
 .about__edu-card {
   padding: 0.95rem 1rem;
   border-radius: 14px;
-  background: var(--clr-surface-strong);
+  background: linear-gradient(135deg, var(--clr-surface-strong), transparent 70%);
   border: 1px solid var(--clr-border-soft);
   -webkit-backdrop-filter: blur(9px);
   backdrop-filter: blur(9px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 14px rgba(41, 120, 181, 0.06);
   text-align: center;
 }
 
 .about__edu-school {
-  font-size: 1rem;
+  font-size: 1.12rem;
   line-height: 1.35;
 }
 
 .about__edu-degree {
   margin-top: 0.35rem;
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   line-height: 1.5;
   opacity: 0.88;
 }
 
 .about__edu-date {
   margin-top: 0.25rem;
-  font-size: 0.84rem;
+  font-size: 0.95rem;
   color: var(--clr-primary);
   font-weight: 600;
 }
