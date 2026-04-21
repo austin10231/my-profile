@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Internship experience of Mutian He at Amazon Web Service (AWS): RiskLens AI intelligent risk analytics platform."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Experience | Mutian He</title>
+  </head>
+
+  <body class="light" id="top">
+    <header class="header center">
+      <h3><a href="index.html" class="link">MH.</a></h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html" data-i18n="nav_home">HOME</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav is-active" href="experience.html" data-i18n="nav_experience">EXPERIENCE</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="projects.html" data-i18n="nav_projects">PROJECTS</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="contact.html" data-i18n="nav_contact">CONTACT</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button id="lang-toggle" type="button" class="btn btn--icon lang-btn">中文</button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="hero-band">
+          <p class="hero-band__kicker" data-i18n="experience_page_kicker">Internship Experience</p>
+          <h1 class="hero-band__title" data-i18n="experience_page_title">AI/LLM Engineering Internship</h1>
+          <p class="hero-band__desc" data-i18n="experience_page_desc">
+            Internship project focused on SEC filing intelligence, multi-dimensional risk scoring, and report automation.
+          </p>
+        </div>
+      </section>
+
+      <section class="section experience">
+        <article class="experience-card">
+          <div class="experience-brand">
+            <img src="image/logo.svg" alt="RiskLens AI logo" class="risklens-logo" />
+          </div>
+
+          <header class="experience-card__head">
+            <h2 class="experience-card__role" data-i18n="exp_role">AI/LLM Engineering Intern</h2>
+            <p class="experience-card__period" data-i18n="exp_period">Jan 2026 - Jun 2026</p>
+          </header>
+
+          <div class="experience-meta-grid">
+            <div class="experience-meta-item">
+              <p class="experience-meta-item__label" data-i18n="exp_company_label">Company</p>
+              <p class="experience-meta-item__value" data-i18n="exp_company">Amazon Web Service (AWS)</p>
+            </div>
+            <div class="experience-meta-item">
+              <p class="experience-meta-item__label" data-i18n="exp_project_label">Project</p>
+              <p class="experience-meta-item__value" data-i18n="exp_project">RiskLens AI Intelligent Risk Analytics Platform</p>
+            </div>
+          </div>
+
+          <div class="experience-card__links">
+            <a
+              href="https://risklens.pages.dev/"
+              target="_blank"
+              rel="noreferrer"
+              class="link"
+              data-i18n="exp_link_demo"
+            >
+              Live Demo Link
+            </a>
+            <span class="experience-card__divider">|</span>
+            <a
+              href="https://github.com/austin10231/10k-risk-evolution.git"
+              target="_blank"
+              rel="noreferrer"
+              class="link"
+              data-i18n="exp_link_github"
+            >
+              Github
+            </a>
+          </div>
+
+          <p class="experience-card__summary" data-i18n="exp_summary"></p>
+
+          <h3 class="experience-card__subhead" data-i18n="exp_resp_title">Key Contributions</h3>
+          <ul class="experience-points">
+            <li data-i18n="exp_resp_1"></li>
+            <li data-i18n="exp_resp_2"></li>
+            <li data-i18n="exp_resp_3"></li>
+          </ul>
+
+          <div class="experience-stack">
+            <p class="experience-stack__label" data-i18n="exp_stack_title">Core Stack</p>
+            <ul class="experience-stack__chips">
+              <li>AWS (S3, Textract, Bedrock)</li>
+              <li>Python</li>
+              <li>Prompt Engineering</li>
+              <li>LLM Agent</li>
+              <li>Financial NLP</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="https://github.com/austin10231" class="link footer__link" data-i18n="footer_text">
+        © 2026 Mutian He
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

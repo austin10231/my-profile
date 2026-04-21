@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio of Mutian He — MSIS student at Santa Clara University, skilled in machine learning, deep learning, and system design."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Mutian He | MSIS Student at SCU</title>
+  </head>
+
+  <body class="light" id="top">
+    <header class="header center">
+      <h3><a href="index.html" class="link">MH.</a></h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="experience.html" data-i18n="nav_experience">EXPERIENCE</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="projects.html" data-i18n="nav_projects">PROJECTS</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#skills" data-i18n="nav_skills">SKILLS</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="contact.html" data-i18n="nav_contact">CONTACT</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button id="lang-toggle" type="button" class="btn btn--icon lang-btn">中文</button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="about center">
+        <h1 class="about__title">
+          <span data-i18n="about_title_prefix">Hi, I am </span>
+          <span class="about__name" data-i18n="about_title_name">Mutian He</span>
+        </h1>
+
+        <div class="profile-photo-container">
+          <img src="image/me.png" alt="Mutian He profile" class="profile-photo" />
+        </div>
+
+        <h2 class="about__role" data-i18n="about_role">Machine Learning & Data Engineering</h2>
+
+        <div class="about__desc">
+          <div class="about__meta">
+            <p class="about__edu" data-i18n="about_edu_1"></p>
+            <p class="about__edu" data-i18n="about_edu_2"></p>
+            <p class="about__seeking" data-i18n="about_seeking"></p>
+          </div>
+
+          <p class="about__intro" data-i18n="about_intro"></p>
+        </div>
+
+        <div class="about__contact center">
+          <a id="resume-link" href="Mutian%20He%20DE%3ADS%20Resume.pdf" target="_blank">
+            <span class="btn btn--outline" data-i18n="btn_resume">Resume</span>
+          </a>
+
+          <a
+            href="https://github.com/austin10231"
+            aria-label="github"
+            class="link link--icon"
+            target="_blank"
+          >
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/mutian-he-58157535a/"
+            aria-label="linkedin"
+            class="link link--icon"
+            target="_blank"
+          >
+            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <section class="section gateway" id="highlights">
+        <h2 class="section__title" data-i18n="home_hub_title">Career Hub</h2>
+        <p class="gateway__intro" data-i18n="home_hub_intro">
+          Dive into my internship impact and full project archive through dedicated pages.
+        </p>
+
+        <div class="gateway__grid">
+          <article class="gateway-card">
+            <div class="gateway-card__brand">
+              <img src="image/logo.svg" alt="RiskLens AI logo" class="risklens-logo risklens-logo--sm" />
+            </div>
+            <p class="gateway-card__eyebrow" data-i18n="home_exp_eyebrow">Internship Spotlight</p>
+            <h3 class="gateway-card__title" data-i18n="home_exp_title">
+              RiskLens AI @ Amazon Web Service (AWS)
+            </h3>
+            <p class="gateway-card__desc" data-i18n="home_exp_desc">
+              Built an AWS + LLM agent pipeline that transforms SEC 10-K filings into decision-ready risk intelligence.
+            </p>
+            <a class="btn btn--outline gateway-card__btn" href="experience.html" data-i18n="home_exp_btn">
+              Open Experience
+            </a>
+          </article>
+
+          <article class="gateway-card">
+            <p class="gateway-card__eyebrow" data-i18n="home_proj_eyebrow">Project Archive</p>
+            <h3 class="gateway-card__title" data-i18n="home_proj_title">
+              Machine Learning & Data Engineering Projects
+            </h3>
+            <p class="gateway-card__desc" data-i18n="home_proj_desc">
+              Explore retained projects spanning multimodal retrieval, ML systems, data pipelines, and analytics.
+            </p>
+            <a class="btn btn--outline gateway-card__btn" href="projects.html" data-i18n="home_proj_btn">
+              Open Projects
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills">
+        <h2 class="section__title" data-i18n="skills_title">Skills</h2>
+        <ul class="skills__list">
+          <li class="skills__list-item btn btn--plain">Python</li>
+          <li class="skills__list-item btn btn--plain">MySQL</li>
+          <li class="skills__list-item btn btn--plain">Pandas</li>
+          <li class="skills__list-item btn btn--plain">NumPy</li>
+          <li class="skills__list-item btn btn--plain">Scikit-learn</li>
+          <li class="skills__list-item btn btn--plain">PyTorch</li>
+          <li class="skills__list-item btn btn--plain">Transformers</li>
+          <li class="skills__list-item btn btn--plain">CLIP</li>
+          <li class="skills__list-item btn btn--plain">FAISS</li>
+          <li class="skills__list-item btn btn--plain">CatBoost</li>
+          <li class="skills__list-item btn btn--plain">ETL Pipelines</li>
+          <li class="skills__list-item btn btn--plain">EDA & Data Cleaning</li>
+          <li class="skills__list-item btn btn--plain">Machine Learning</li>
+          <li class="skills__list-item btn btn--plain">NLP</li>
+          <li class="skills__list-item btn btn--plain">Flask</li>
+          <li class="skills__list-item btn btn--plain">Streamlit</li>
+          <li class="skills__list-item btn btn--plain">AWS (EC2, S3, RDS)</li>
+          <li class="skills__list-item btn btn--plain">Git / GitHub</li>
+          <li class="skills__list-item btn btn--plain">Linux</li>
+          <li class="skills__list-item btn btn--plain">CI/CD</li>
+          <li class="skills__list-item btn btn--plain">Java</li>
+          <li class="skills__list-item btn btn--plain">Airflow</li>
+          <li class="skills__list-item btn btn--plain">SQLite</li>
+          <li class="skills__list-item btn btn--plain">MLOps</li>
+        </ul>
+      </section>
+
+      <section class="section contact center" id="contact">
+        <h2 class="section__title" data-i18n="contact_title">Contact</h2>
+        <a href="contact.html">
+          <span class="btn btn--outline" data-i18n="btn_email">Email me</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a
+        href="https://github.com/austin10231"
+        class="link footer__link"
+        data-i18n="footer_text"
+      >
+        © 2026 Mutian He
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

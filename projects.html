@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Projects portfolio of Mutian He: machine learning, data engineering, and analytics systems."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Projects | Mutian He</title>
+  </head>
+
+  <body class="light" id="top">
+    <header class="header center">
+      <h3><a href="index.html" class="link">MH.</a></h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html" data-i18n="nav_home">HOME</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="experience.html" data-i18n="nav_experience">EXPERIENCE</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav is-active" href="projects.html" data-i18n="nav_projects">PROJECTS</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="contact.html" data-i18n="nav_contact">CONTACT</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button id="lang-toggle" type="button" class="btn btn--icon lang-btn">中文</button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="hero-band">
+          <p class="hero-band__kicker" data-i18n="projects_page_kicker">Selected Work</p>
+          <h1 class="hero-band__title" data-i18n="projects_page_title">Project Portfolio</h1>
+          <p class="hero-band__desc" data-i18n="projects_page_desc">
+            A curated archive of my machine learning, data engineering, and analytics builds.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <a class="feature-strip" href="experience.html" data-i18n="projects_page_strip">
+          Want to see RiskLens AI in internship context? Visit Experience →
+        </a>
+      </section>
+
+      <section id="projects" class="section projects">
+        <h2 class="section__title" data-i18n="projects_archive_title">All Projects</h2>
+
+        <div class="projects__grid">
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj7_title">Multimodal Image Search Engine</h3>
+              <span class="project__tag" data-i18n="proj7_tag">Multimodal ML</span>
+            </div>
+            <p class="project__description" data-i18n="proj7_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">PyTorch</li>
+                <li class="project__stack-item">CLIP</li>
+                <li class="project__stack-item">FAISS</li>
+                <li class="project__stack-item">Streamlit</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://multimodal-image-search-engine-ti5vdha6fpjbnbvxmzfifw.streamlit.app/"
+                  aria-label="live demo"
+                  class="link link--icon"
+                  target="_blank"
+                  title="Live Demo"
+                >
+                  <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+                </a>
+                <a
+                  href="https://github.com/austin10231/multimodal-image-search-engine.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                  title="GitHub"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj2_title">End-to-End Instacart Reorder Prediction System</h3>
+              <span class="project__tag" data-i18n="proj2_tag">ML Engineering</span>
+            </div>
+            <p class="project__description" data-i18n="proj2_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">Pandas / Scikit-learn</li>
+                <li class="project__stack-item">ETL Pipeline</li>
+                <li class="project__stack-item">ML Engineering</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://github.com/austin10231/Instacart-end-to-end-ML-system.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj8_title">Jenkins as a Service (JaaS)</h3>
+              <span class="project__tag" data-i18n="proj8_tag">DevOps Platform Engineering</span>
+            </div>
+            <p class="project__description" data-i18n="proj8_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Jenkins</li>
+                <li class="project__stack-item">VMware</li>
+                <li class="project__stack-item">RBAC & Audit Logs</li>
+                <li class="project__stack-item">JFrog</li>
+                <li class="project__stack-item">CI/CD Governance</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="./Jenkins%20as%20a%20Service%20(JaaS).pdf"
+                  aria-label="project document"
+                  class="link link--icon"
+                  target="_blank"
+                  title="Project Document"
+                >
+                  <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+                </a>
+                <a
+                  href="https://github.com/austin10231/Jenkins-as-a-Service-OSS-Platform.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                  title="GitHub"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj3_title">Bank Marketing Subscription Predictor</h3>
+              <span class="project__tag" data-i18n="proj3_tag">Machine Learning</span>
+            </div>
+            <p class="project__description" data-i18n="proj3_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">XGBoost</li>
+                <li class="project__stack-item">SHAP</li>
+                <li class="project__stack-item">SMOTE</li>
+                <li class="project__stack-item">Scikit-learn</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://github.com/austin10231/Bank_Marketing_ML_Project.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj4_title">Cloud-Based Real-Time Stock Data Pipeline</h3>
+              <span class="project__tag" data-i18n="proj4_tag">Data Engineering</span>
+            </div>
+            <p class="project__description" data-i18n="proj4_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">AWS (EC2, S3, Glue, Athena)</li>
+                <li class="project__stack-item">Apache Kafka</li>
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">Streaming Architecture</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://github.com/austin10231/kafka-streaming-data-lake.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj5_title">Spotify Podcast Popularity Analysis</h3>
+              <span class="project__tag" data-i18n="proj5_tag">Data Analysis</span>
+            </div>
+            <p class="project__description" data-i18n="proj5_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">Pandas / NumPy</li>
+                <li class="project__stack-item">Scikit-learn</li>
+                <li class="project__stack-item">Seaborn / Matplotlib</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://github.com/austin10231/Data-Analysis-With-Python-Project.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <h3 class="project__title" data-i18n="proj6_title">Real-Time Flight Delay Prediction System</h3>
+              <span class="project__tag" data-i18n="proj6_tag">ML Engineering</span>
+            </div>
+            <p class="project__description" data-i18n="proj6_desc"></p>
+            <div class="project__footer">
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">CatBoost</li>
+                <li class="project__stack-item">ML Pipeline</li>
+                <li class="project__stack-item">Streamlit</li>
+              </ul>
+              <div class="project__links">
+                <a
+                  href="https://github.com/austin10231/Flight-Delay-Demo.git"
+                  aria-label="source code"
+                  class="link link--icon"
+                  target="_blank"
+                >
+                  <i aria-hidden="true" class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="https://github.com/austin10231" class="link footer__link" data-i18n="footer_text">
+        © 2026 Mutian He
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
