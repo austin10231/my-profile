@@ -273,7 +273,7 @@ main {
   width: 100%;
   margin: 0 auto;
   font-size: 0.94rem;
-  text-align: left;
+  text-align: center;
 }
 
 .about__seeking-badge {
@@ -302,6 +302,7 @@ main {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  text-align: center;
 }
 
 .about__edu-school {
@@ -324,7 +325,7 @@ main {
 }
 
 .about__intro {
-  margin-top: 1rem;
+  margin: 1rem auto 0;
   max-width: 900px;
   font-size: 1rem;
   line-height: 1.82;
@@ -335,6 +336,7 @@ main {
   margin-top: 0.95rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.55rem;
 }
 
