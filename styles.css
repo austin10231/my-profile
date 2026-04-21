@@ -143,8 +143,8 @@ body.page-transitioning {
   --clr-fg: #555;
   --clr-fg-alt: #444;
   --clr-primary: #2978b5;
-  --clr-surface: rgba(255, 255, 255, 0.02);
-  --clr-surface-strong: rgba(255, 255, 255, 0.04);
+  --clr-surface: transparent;
+  --clr-surface-strong: transparent;
   --clr-border-soft: rgba(41, 120, 181, 0.2);
   --clr-meta-bg: rgba(41, 120, 181, 0.11);
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -156,8 +156,8 @@ body.page-transitioning {
   --clr-fg: #bdbddd;
   --clr-fg-alt: #cdcdff;
   --clr-primary: #90a0d9;
-  --clr-surface: rgba(42, 47, 76, 0.18);
-  --clr-surface-strong: rgba(42, 47, 76, 0.24);
+  --clr-surface: transparent;
+  --clr-surface-strong: transparent;
   --clr-border-soft: rgba(144, 160, 217, 0.26);
   --clr-meta-bg: rgba(144, 160, 217, 0.14);
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -318,10 +318,8 @@ button {
 
 .btn--plain {
   text-transform: initial;
-  background-color: var(--clr-surface-strong);
+  background-color: transparent;
   border: 1px solid var(--clr-border-soft);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
@@ -435,10 +433,8 @@ main {
 .about__edu-card {
   padding: 0.95rem 1rem;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--clr-surface-strong), transparent 70%);
+  background: transparent;
   border: 1px solid var(--clr-border-soft);
-  -webkit-backdrop-filter: blur(9px);
-  backdrop-filter: blur(9px);
   box-shadow: 0 2px 14px rgba(41, 120, 181, 0.06);
   text-align: center;
 }
@@ -530,10 +526,8 @@ main {
   padding: 2rem 1.8rem;
   border-radius: 20px;
   box-shadow: var(--shadow);
-  background: var(--clr-surface);
+  background: transparent;
   border: 1px solid var(--clr-border-soft);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 }
 
 .gateway-card:nth-child(2) {
@@ -593,10 +587,8 @@ main {
 
 .project {
   padding: 1.8em 2em;
-  background: var(--clr-surface);
+  background: transparent;
   border: 1px solid var(--clr-border-soft);
-  -webkit-backdrop-filter: blur(9px);
-  backdrop-filter: blur(9px);
   box-shadow: var(--shadow);
   border-radius: 16px;
   transition: transform 0.2s linear;
@@ -738,9 +730,7 @@ main {
   border-radius: 20px;
   border: 1px solid var(--clr-border-soft);
   box-shadow: var(--shadow);
-  background: var(--clr-surface);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 .experience-card__head {
@@ -1081,10 +1071,8 @@ main {
   max-width: 640px;
   margin: 0.3rem auto;
   padding: 2.5rem 2rem;
-  background: var(--clr-surface-strong);
+  background: transparent;
   border: 1px solid var(--clr-border-soft);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   text-align: left;
