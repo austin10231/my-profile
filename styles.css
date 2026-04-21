@@ -137,6 +137,38 @@ body.page-transitioning {
   transition: transform 0.18s ease;
 }
 
+.cursor-trail-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.cursor-spark {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0;
+  --spark-h: 210;
+  --x: 0px;
+  --y: 0px;
+  --dx: 0px;
+  --dy: 0px;
+  background: radial-gradient(
+    circle,
+    hsl(var(--spark-h) 95% 76% / 0.95) 0%,
+    hsl(var(--spark-h) 90% 62% / 0.58) 44%,
+    transparent 74%
+  );
+  box-shadow: 0 0 10px hsl(var(--spark-h) 95% 70% / 0.4);
+  animation: cursor-spark-fade 620ms cubic-bezier(0.21, 0.61, 0.35, 1) forwards;
+  will-change: transform, opacity;
+}
+
 .light {
   --clr-bg: #fcfcfc;
   --clr-bg-alt: #fff;
@@ -896,6 +928,25 @@ main {
   }
 }
 
+@keyframes cursor-spark-fade {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(var(--x), var(--y), 0) scale(1);
+  }
+  65% {
+    opacity: 0.68;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(
+        calc(var(--x) + var(--dx)),
+        calc(var(--y) + var(--dy)),
+        0
+      )
+      scale(0.24);
+  }
+}
+
 @media (min-width: 901px) {
   .about__seeking-badge {
     white-space: nowrap;
@@ -959,6 +1010,10 @@ main {
   .magnetic {
     transform: none !important;
     transition: none;
+  }
+
+  .cursor-trail-layer {
+    display: none;
   }
 }
 

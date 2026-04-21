@@ -498,6 +498,90 @@ function initPointerGlow() {
   });
 }
 
+function initCursorTrail() {
+  if (reducedMotionQuery.matches || coarsePointerQuery.matches) return;
+
+  const trailLayer = document.createElement("div");
+  trailLayer.className = "cursor-trail-layer";
+  body.appendChild(trailLayer);
+
+  let lastX = window.innerWidth * 0.5;
+  let lastY = window.innerHeight * 0.3;
+  let lastEmitAt = 0;
+
+  const spawnSpark = (x, y, burst = false) => {
+    const spark = document.createElement("span");
+    spark.className = "cursor-spark";
+
+    const angle = Math.random() * Math.PI * 2;
+    const speed = burst ? 18 + Math.random() * 44 : 8 + Math.random() * 20;
+    const driftX = Math.cos(angle) * speed;
+    const driftY = Math.sin(angle) * speed;
+    const size = burst ? 4 + Math.random() * 7 : 3 + Math.random() * 5;
+    const lifetime = burst ? 520 + Math.random() * 320 : 430 + Math.random() * 250;
+    const hue = 198 + Math.random() * 30;
+
+    spark.style.width = `${size.toFixed(2)}px`;
+    spark.style.height = `${size.toFixed(2)}px`;
+    spark.style.animationDuration = `${Math.round(lifetime)}ms`;
+    spark.style.setProperty("--spark-h", hue.toFixed(2));
+    spark.style.setProperty("--x", `${x.toFixed(2)}px`);
+    spark.style.setProperty("--y", `${y.toFixed(2)}px`);
+    spark.style.setProperty("--dx", `${driftX.toFixed(2)}px`);
+    spark.style.setProperty("--dy", `${driftY.toFixed(2)}px`);
+
+    trailLayer.appendChild(spark);
+    spark.addEventListener("animationend", () => spark.remove());
+
+    if (trailLayer.childElementCount > 90) {
+      trailLayer.firstElementChild?.remove();
+    }
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      const now = performance.now();
+      const deltaX = event.clientX - lastX;
+      const deltaY = event.clientY - lastY;
+      const distance = Math.hypot(deltaX, deltaY);
+
+      if (distance < 7 && now - lastEmitAt < 24) return;
+
+      const steps = Math.max(1, Math.min(4, Math.floor(distance / 18)));
+      for (let i = 1; i <= steps; i += 1) {
+        const progress = i / steps;
+        const x = lastX + deltaX * progress + (Math.random() - 0.5) * 2;
+        const y = lastY + deltaY * progress + (Math.random() - 0.5) * 2;
+        spawnSpark(x, y, false);
+      }
+
+      lastX = event.clientX;
+      lastY = event.clientY;
+      lastEmitAt = now;
+    },
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "pointerdown",
+    (event) => {
+      for (let i = 0; i < 11; i += 1) {
+        spawnSpark(event.clientX, event.clientY, true);
+      }
+    },
+    { passive: true }
+  );
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) trailLayer.replaceChildren();
+  });
+
+  window.addEventListener("blur", () => {
+    trailLayer.replaceChildren();
+  });
+}
+
 function initRevealAnimations() {
   const selectors = [
     ".about__seeking-badge",
@@ -629,6 +713,7 @@ function initMagneticButtons() {
 function initInteractions() {
   initPageTransitions();
   initPointerGlow();
+  initCursorTrail();
   initRevealAnimations();
   initTiltCards();
   initMagneticButtons();
