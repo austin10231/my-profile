@@ -27,8 +27,6 @@ body {
   position: relative;
   isolation: isolate;
   overflow-x: hidden;
-  --pointer-x: 50vw;
-  --pointer-y: 30vh;
 }
 
 body::before,
@@ -40,11 +38,7 @@ body::after {
 }
 
 body::before {
-  background: radial-gradient(
-    420px circle at var(--pointer-x) var(--pointer-y),
-    rgba(41, 120, 181, 0.22) 0%,
-    rgba(41, 120, 181, 0) 68%
-  );
+  background: none;
   z-index: -1;
 }
 
@@ -145,28 +139,24 @@ body.page-transitioning {
   overflow: hidden;
 }
 
-.cursor-spark {
+.magnet-particle {
   position: fixed;
   left: 0;
   top: 0;
-  width: 7px;
-  height: 7px;
+  width: var(--size, 6px);
+  height: var(--size, 6px);
   border-radius: 50%;
   opacity: 0;
-  --spark-h: 210;
-  --x: 0px;
-  --y: 0px;
-  --dx: 0px;
-  --dy: 0px;
+  --particle-h: 210;
   background: radial-gradient(
     circle,
-    hsl(var(--spark-h) 95% 76% / 0.95) 0%,
-    hsl(var(--spark-h) 90% 62% / 0.58) 44%,
+    hsl(var(--particle-h) 95% 78% / 0.96) 0%,
+    hsl(var(--particle-h) 90% 66% / 0.62) 40%,
     transparent 74%
   );
-  box-shadow: 0 0 10px hsl(var(--spark-h) 95% 70% / 0.4);
-  animation: cursor-spark-fade 620ms cubic-bezier(0.21, 0.61, 0.35, 1) forwards;
+  box-shadow: 0 0 13px hsl(var(--particle-h) 95% 70% / 0.4);
   will-change: transform, opacity;
+  transition: opacity 0.24s ease;
 }
 
 .light {
@@ -194,14 +184,6 @@ body.page-transitioning {
   --clr-meta-bg: rgba(144, 160, 217, 0.14);
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
-
-.dark::before {
-  background: radial-gradient(
-    420px circle at var(--pointer-x) var(--pointer-y),
-    rgba(144, 160, 217, 0.22) 0%,
-    rgba(144, 160, 217, 0) 70%
-  );
 }
 
 .dark::after {
@@ -928,25 +910,6 @@ main {
   }
 }
 
-@keyframes cursor-spark-fade {
-  0% {
-    opacity: 0.95;
-    transform: translate3d(var(--x), var(--y), 0) scale(1);
-  }
-  65% {
-    opacity: 0.68;
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(
-        calc(var(--x) + var(--dx)),
-        calc(var(--y) + var(--dy)),
-        0
-      )
-      scale(0.24);
-  }
-}
-
 @media (min-width: 901px) {
   .about__seeking-badge {
     white-space: nowrap;
@@ -990,10 +953,6 @@ main {
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
-  body::before {
-    display: none;
-  }
-
   body::after {
     animation: none;
     opacity: 0.35;

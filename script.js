@@ -466,99 +466,84 @@ function initPageTransitions() {
   }, 420);
 }
 
-function initPointerGlow() {
-  if (reducedMotionQuery.matches) return;
-
-  let rafId = 0;
-  let pointerX = window.innerWidth * 0.5;
-  let pointerY = window.innerHeight * 0.3;
-
-  const applyPointer = () => {
-    body.style.setProperty("--pointer-x", `${pointerX}px`);
-    body.style.setProperty("--pointer-y", `${pointerY}px`);
-    rafId = 0;
-  };
-
-  applyPointer();
-
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      if (!rafId) rafId = requestAnimationFrame(applyPointer);
-    },
-    { passive: true }
-  );
-
-  window.addEventListener("mouseleave", () => {
-    pointerX = window.innerWidth * 0.5;
-    pointerY = window.innerHeight * 0.3;
-    if (!rafId) rafId = requestAnimationFrame(applyPointer);
-  });
-}
-
-function initCursorTrail() {
+function initMagneticParticles() {
   if (reducedMotionQuery.matches || coarsePointerQuery.matches) return;
 
-  const trailLayer = document.createElement("div");
-  trailLayer.className = "cursor-trail-layer";
-  body.appendChild(trailLayer);
+  const layer = document.createElement("div");
+  layer.className = "cursor-trail-layer";
+  body.appendChild(layer);
 
-  let lastX = window.innerWidth * 0.5;
-  let lastY = window.innerHeight * 0.3;
-  let lastEmitAt = 0;
+  const particleCount = 26;
+  let pointerX = window.innerWidth * 0.5;
+  let pointerY = window.innerHeight * 0.32;
+  let active = false;
+  let frameId = 0;
+  let time = 0;
 
-  const spawnSpark = (x, y, burst = false) => {
-    const spark = document.createElement("span");
-    spark.className = "cursor-spark";
+  const particles = Array.from({ length: particleCount }, (_, index) => {
+    const el = document.createElement("span");
+    el.className = "magnet-particle";
 
-    const angle = Math.random() * Math.PI * 2;
-    const speed = burst ? 18 + Math.random() * 44 : 8 + Math.random() * 20;
-    const driftX = Math.cos(angle) * speed;
-    const driftY = Math.sin(angle) * speed;
-    const size = burst ? 4 + Math.random() * 7 : 3 + Math.random() * 5;
-    const lifetime = burst ? 520 + Math.random() * 320 : 430 + Math.random() * 250;
-    const hue = 198 + Math.random() * 30;
+    const size = 3.2 + Math.random() * 4.8;
+    const orbit = 12 + Math.random() * 40 + index * 0.42;
+    const phase = Math.random() * Math.PI * 2;
+    const spin = 0.55 + Math.random() * 1.25;
+    const hue = 198 + Math.random() * 36;
+    const baseOpacity = 0.34 + Math.random() * 0.48;
 
-    spark.style.width = `${size.toFixed(2)}px`;
-    spark.style.height = `${size.toFixed(2)}px`;
-    spark.style.animationDuration = `${Math.round(lifetime)}ms`;
-    spark.style.setProperty("--spark-h", hue.toFixed(2));
-    spark.style.setProperty("--x", `${x.toFixed(2)}px`);
-    spark.style.setProperty("--y", `${y.toFixed(2)}px`);
-    spark.style.setProperty("--dx", `${driftX.toFixed(2)}px`);
-    spark.style.setProperty("--dy", `${driftY.toFixed(2)}px`);
+    el.style.setProperty("--size", `${size.toFixed(2)}px`);
+    el.style.setProperty("--particle-h", hue.toFixed(2));
+    layer.appendChild(el);
 
-    trailLayer.appendChild(spark);
-    spark.addEventListener("animationend", () => spark.remove());
+    return {
+      el,
+      x: pointerX + Math.cos(phase) * orbit,
+      y: pointerY + Math.sin(phase) * orbit,
+      vx: 0,
+      vy: 0,
+      orbit,
+      phase,
+      spin,
+      size,
+      baseOpacity,
+    };
+  });
 
-    if (trailLayer.childElementCount > 90) {
-      trailLayer.firstElementChild?.remove();
-    }
+  const update = () => {
+    time += 0.016;
+
+    particles.forEach((p, idx) => {
+      const orbitScale = active ? 1 : 0.52;
+      const rotation = time * p.spin + p.phase;
+      const orbitX = Math.cos(rotation) * p.orbit * orbitScale;
+      const orbitY = Math.sin(rotation) * p.orbit * orbitScale;
+      const jitter = active ? Math.sin(time * 4.5 + idx) * 1.8 : 0;
+
+      const targetX = pointerX + orbitX + jitter;
+      const targetY = pointerY + orbitY + jitter * 0.65;
+
+      p.vx += (targetX - p.x) * 0.072;
+      p.vy += (targetY - p.y) * 0.072;
+      p.vx *= 0.79;
+      p.vy *= 0.79;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      const scale = active ? 1 : 0.72;
+      const opacity = active ? p.baseOpacity : p.baseOpacity * 0.4;
+      p.el.style.transform = `translate3d(${p.x.toFixed(2)}px, ${p.y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+      p.el.style.opacity = opacity.toFixed(3);
+    });
+
+    frameId = requestAnimationFrame(update);
   };
 
   window.addEventListener(
     "pointermove",
     (event) => {
-      const now = performance.now();
-      const deltaX = event.clientX - lastX;
-      const deltaY = event.clientY - lastY;
-      const distance = Math.hypot(deltaX, deltaY);
-
-      if (distance < 7 && now - lastEmitAt < 24) return;
-
-      const steps = Math.max(1, Math.min(4, Math.floor(distance / 18)));
-      for (let i = 1; i <= steps; i += 1) {
-        const progress = i / steps;
-        const x = lastX + deltaX * progress + (Math.random() - 0.5) * 2;
-        const y = lastY + deltaY * progress + (Math.random() - 0.5) * 2;
-        spawnSpark(x, y, false);
-      }
-
-      lastX = event.clientX;
-      lastY = event.clientY;
-      lastEmitAt = now;
+      active = true;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
     },
     { passive: true }
   );
@@ -566,20 +551,33 @@ function initCursorTrail() {
   window.addEventListener(
     "pointerdown",
     (event) => {
-      for (let i = 0; i < 11; i += 1) {
-        spawnSpark(event.clientX, event.clientY, true);
-      }
+      active = true;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+
+      particles.forEach((p) => {
+        const angle = Math.random() * Math.PI * 2;
+        const impulse = 1.5 + Math.random() * 4.2;
+        p.vx += Math.cos(angle) * impulse;
+        p.vy += Math.sin(angle) * impulse;
+      });
     },
     { passive: true }
   );
 
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) trailLayer.replaceChildren();
+  window.addEventListener("pointerleave", () => {
+    active = false;
   });
 
   window.addEventListener("blur", () => {
-    trailLayer.replaceChildren();
+    active = false;
   });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) active = false;
+  });
+
+  frameId = requestAnimationFrame(update);
 }
 
 function initRevealAnimations() {
@@ -712,8 +710,7 @@ function initMagneticButtons() {
 
 function initInteractions() {
   initPageTransitions();
-  initPointerGlow();
-  initCursorTrail();
+  initMagneticParticles();
   initRevealAnimations();
   initTiltCards();
   initMagneticButtons();
