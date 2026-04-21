@@ -24,6 +24,117 @@ body {
   line-height: 1.5;
   color: var(--clr-fg);
   background-color: var(--clr-bg);
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  --pointer-x: 50vw;
+  --pointer-y: 30vh;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background: radial-gradient(
+    420px circle at var(--pointer-x) var(--pointer-y),
+    rgba(41, 120, 181, 0.22) 0%,
+    rgba(41, 120, 181, 0) 68%
+  );
+  z-index: -1;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(86, 204, 242, 0.16), transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(107, 140, 255, 0.13), transparent 42%),
+    linear-gradient(135deg, rgba(41, 120, 181, 0.04), rgba(41, 120, 181, 0));
+  z-index: -2;
+  animation: aurora-shift 20s ease-in-out infinite alternate;
+}
+
+header,
+main,
+footer,
+.scroll-container {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.page-enter.page-enter-active,
+body.page-transitioning {
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+body.page-enter.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-transitioning {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.interactive-tilt {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(980px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateY(var(--lift, 0px));
+  transition: transform 0.22s ease, box-shadow 0.28s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+
+.interactive-tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0) 48%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.interactive-tilt.is-hover {
+  --lift: -6px;
+}
+
+.interactive-tilt.is-hover::after {
+  opacity: 0.62;
+}
+
+.magnetic {
+  will-change: transform;
+  transition: transform 0.18s ease;
 }
 
 .light {
@@ -43,6 +154,21 @@ body {
   --clr-primary: #90a0d9;
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.dark::before {
+  background: radial-gradient(
+    420px circle at var(--pointer-x) var(--pointer-y),
+    rgba(144, 160, 217, 0.22) 0%,
+    rgba(144, 160, 217, 0) 70%
+  );
+}
+
+.dark::after {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(144, 160, 217, 0.18), transparent 46%),
+    radial-gradient(circle at 80% 75%, rgba(107, 140, 255, 0.14), transparent 44%),
+    linear-gradient(145deg, rgba(26, 35, 59, 0.42), rgba(26, 35, 59, 0));
 }
 
 ::-moz-selection {
@@ -394,7 +520,6 @@ main {
   box-shadow: var(--shadow);
   background: var(--clr-bg-alt);
   border: 1px solid rgba(41, 120, 181, 0.12);
-  animation: fade-up 0.55s ease both;
 }
 
 .gateway-card:nth-child(2) {
@@ -463,7 +588,7 @@ main {
   height: 100%;
 }
 
-.project:hover {
+.project:hover:not(.interactive-tilt) {
   transform: translateY(-4px);
 }
 
@@ -544,7 +669,6 @@ main {
   background: linear-gradient(125deg, rgba(41, 120, 181, 0.16), rgba(41, 120, 181, 0.06));
   border: 1px solid rgba(41, 120, 181, 0.2);
   box-shadow: var(--shadow);
-  animation: fade-up 0.5s ease both;
 }
 
 .hero-band::after {
@@ -597,7 +721,6 @@ main {
   border: 1px solid rgba(41, 120, 181, 0.2);
   box-shadow: var(--shadow);
   background: var(--clr-bg-alt);
-  animation: fade-up 0.6s ease both;
 }
 
 .experience-card__head {
@@ -754,6 +877,15 @@ main {
   }
 }
 
+@keyframes aurora-shift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, -1.2%, 0) scale(1.045);
+  }
+}
+
 @media (min-width: 901px) {
   .about__seeking-badge {
     white-space: nowrap;
@@ -793,6 +925,30 @@ main {
 
   .projects__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  body::before {
+    display: none;
+  }
+
+  body::after {
+    animation: none;
+    opacity: 0.35;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .interactive-tilt,
+  .magnetic {
+    transform: none !important;
+    transition: none;
   }
 }
 

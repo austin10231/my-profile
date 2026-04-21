@@ -1,6 +1,8 @@
 const body = document.body;
 const btnTheme = document.getElementById('btn-theme');
 const btnHamburger = document.querySelector('.nav__hamburger i');
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
 
 // 给 body 和主题按钮加 class，注意这里都加了保护
 const addThemeClass = (bodyClass, btnClass) => {
@@ -453,9 +455,234 @@ function initI18n() {
   }
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initI18n);
-} else {
-  // DOM 已经 ready 了，直接执行
+function initPageTransitions() {
+  body.classList.add("page-enter");
+  requestAnimationFrame(() => {
+    body.classList.add("page-enter-active");
+  });
+
+  setTimeout(() => {
+    body.classList.remove("page-enter", "page-enter-active");
+  }, 420);
+
+  const linkEls = document.querySelectorAll("a[href]");
+  linkEls.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const rawHref = link.getAttribute("href");
+      if (!rawHref || rawHref.startsWith("#") || link.hasAttribute("download")) return;
+      if (link.target && link.target.toLowerCase() !== "_self") return;
+
+      let nextUrl;
+      try {
+        nextUrl = new URL(rawHref, window.location.href);
+      } catch {
+        return;
+      }
+
+      if (nextUrl.origin !== window.location.origin) return;
+      if (/\.(pdf|png|jpe?g|gif|svg|webp|zip)$/i.test(nextUrl.pathname)) return;
+
+      const samePath = nextUrl.pathname === window.location.pathname;
+      const sameQuery = nextUrl.search === window.location.search;
+      if (samePath && sameQuery && nextUrl.hash) return;
+      if (samePath && sameQuery && !nextUrl.hash) return;
+      if (body.classList.contains("page-transitioning")) return;
+
+      event.preventDefault();
+      body.classList.add("page-transitioning");
+      window.setTimeout(() => {
+        window.location.href = nextUrl.href;
+      }, 250);
+    });
+  });
+}
+
+function initPointerGlow() {
+  if (reducedMotionQuery.matches) return;
+
+  let rafId = 0;
+  let pointerX = window.innerWidth * 0.5;
+  let pointerY = window.innerHeight * 0.3;
+
+  const applyPointer = () => {
+    body.style.setProperty("--pointer-x", `${pointerX}px`);
+    body.style.setProperty("--pointer-y", `${pointerY}px`);
+    rafId = 0;
+  };
+
+  applyPointer();
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (!rafId) rafId = requestAnimationFrame(applyPointer);
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("mouseleave", () => {
+    pointerX = window.innerWidth * 0.5;
+    pointerY = window.innerHeight * 0.3;
+    if (!rafId) rafId = requestAnimationFrame(applyPointer);
+  });
+}
+
+function initRevealAnimations() {
+  const selectors = [
+    ".about__seeking-badge",
+    ".about__edu-card",
+    ".about__intro",
+    ".about__highlight",
+    ".gateway-card",
+    ".skills__list-item",
+    ".contact .btn",
+    ".hero-band",
+    ".feature-strip",
+    ".project",
+    ".experience-card",
+    ".contact-wrapper",
+  ];
+
+  const targets = Array.from(
+    new Set(
+      selectors.flatMap((selector) => Array.from(document.querySelectorAll(selector)))
+    )
+  );
+
+  targets.forEach((el, index) => {
+    el.classList.add("reveal");
+    el.style.setProperty("--reveal-delay", `${(index % 8) * 70}ms`);
+  });
+
+  if (reducedMotionQuery.matches) {
+    targets.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.16,
+      rootMargin: "0px 0px -8% 0px",
+    }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+}
+
+function initTiltCards() {
+  if (reducedMotionQuery.matches || coarsePointerQuery.matches) return;
+
+  const cards = document.querySelectorAll(
+    ".gateway-card, .project, .experience-card, .about__edu-card, .hero-band"
+  );
+
+  cards.forEach((card) => {
+    card.classList.add("interactive-tilt");
+
+    let rafId = 0;
+    let tiltX = 0;
+    let tiltY = 0;
+    let shineX = 50;
+    let shineY = 50;
+
+    const applyTilt = () => {
+      card.style.setProperty("--rx", `${tiltX.toFixed(2)}deg`);
+      card.style.setProperty("--ry", `${tiltY.toFixed(2)}deg`);
+      card.style.setProperty("--shine-x", `${shineX.toFixed(2)}%`);
+      card.style.setProperty("--shine-y", `${shineY.toFixed(2)}%`);
+      rafId = 0;
+    };
+
+    const scheduleUpdate = () => {
+      if (!rafId) rafId = requestAnimationFrame(applyTilt);
+    };
+
+    card.addEventListener("pointerenter", () => {
+      card.classList.add("is-hover");
+    });
+
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+
+      tiltX = (0.5 - y) * 10;
+      tiltY = (x - 0.5) * 10;
+      shineX = x * 100;
+      shineY = y * 100;
+      scheduleUpdate();
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.classList.remove("is-hover");
+      tiltX = 0;
+      tiltY = 0;
+      shineX = 50;
+      shineY = 50;
+      scheduleUpdate();
+    });
+  });
+}
+
+function initMagneticButtons() {
+  if (reducedMotionQuery.matches || coarsePointerQuery.matches) return;
+
+  const targets = document.querySelectorAll(
+    ".btn--outline, .btn--plain, .gateway-card__btn, .feature-strip"
+  );
+
+  targets.forEach((target) => {
+    target.classList.add("magnetic");
+
+    target.addEventListener("pointermove", (event) => {
+      const rect = target.getBoundingClientRect();
+      const strength = target.classList.contains("feature-strip") ? 9 : 11;
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      target.style.transform = `translate(${(x * strength).toFixed(2)}px, ${(y * strength).toFixed(2)}px)`;
+    });
+
+    target.addEventListener("pointerleave", () => {
+      target.style.transform = "";
+    });
+  });
+}
+
+function initInteractions() {
+  initPageTransitions();
+  initPointerGlow();
+  initRevealAnimations();
+  initTiltCards();
+  initMagneticButtons();
+}
+
+function initApp() {
   initI18n();
+  initInteractions();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
 }
