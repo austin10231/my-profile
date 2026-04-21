@@ -464,48 +464,6 @@ function initPageTransitions() {
   setTimeout(() => {
     body.classList.remove("page-enter", "page-enter-active");
   }, 420);
-
-  const linkEls = document.querySelectorAll("a[href]");
-  linkEls.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      ) {
-        return;
-      }
-
-      const rawHref = link.getAttribute("href");
-      if (!rawHref || rawHref.startsWith("#") || link.hasAttribute("download")) return;
-      if (link.target && link.target.toLowerCase() !== "_self") return;
-
-      let nextUrl;
-      try {
-        nextUrl = new URL(rawHref, window.location.href);
-      } catch {
-        return;
-      }
-
-      if (nextUrl.origin !== window.location.origin) return;
-      if (/\.(pdf|png|jpe?g|gif|svg|webp|zip)$/i.test(nextUrl.pathname)) return;
-
-      const samePath = nextUrl.pathname === window.location.pathname;
-      const sameQuery = nextUrl.search === window.location.search;
-      if (samePath && sameQuery && nextUrl.hash) return;
-      if (samePath && sameQuery && !nextUrl.hash) return;
-      if (body.classList.contains("page-transitioning")) return;
-
-      event.preventDefault();
-      body.classList.add("page-transitioning");
-      window.setTimeout(() => {
-        window.location.href = nextUrl.href;
-      }, 250);
-    });
-  });
 }
 
 function initPointerGlow() {
