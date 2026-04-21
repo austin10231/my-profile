@@ -266,6 +266,22 @@ const translations = {
 };
 
 Object.assign(translations.en, {
+  about_role: "AI/LLM + Data Engineering Intern",
+  about_seeking_badge: "Open to 2026 Internship Opportunities",
+  about_edu_school_1: "Santa Clara University",
+  about_edu_degree_1: "Master of Science in Information Systems",
+  about_edu_date_1: "Expected Jan 2027",
+  about_edu_school_2: "University of Glasgow",
+  about_edu_degree_2: "Bachelor of Science in Computer Science",
+  about_edu_date_2: "Graduated Jun 2024",
+  about_intro:
+    "I build production-minded AI and data systems end-to-end, from data ingestion and modeling to business-facing insights. My hands-on experience includes AWS data pipelines, LLM application development, machine learning workflows, and dashboard-based analytics delivery.",
+  about_focus_1: "Python",
+  about_focus_2: "SQL",
+  about_focus_3: "AWS Data Pipelines",
+  about_focus_4: "LLM Applications",
+  about_focus_5: "Machine Learning",
+  about_focus_6: "BI / Dashboarding",
   nav_home: "HOME",
   nav_experience: "EXPERIENCE",
   home_hub_title: "CAREER HUB",
@@ -313,6 +329,22 @@ Object.assign(translations.en, {
 });
 
 Object.assign(translations.zh, {
+  about_role: "AI/LLM + 数据工程实习生",
+  about_seeking_badge: "正在寻找 2026 实习机会",
+  about_edu_school_1: "Santa Clara University（圣塔克拉拉大学）",
+  about_edu_degree_1: "Master of Science in Information Systems",
+  about_edu_date_1: "预计毕业时间：2027 年 1 月",
+  about_edu_school_2: "University of Glasgow（格拉斯哥大学）",
+  about_edu_degree_2: "Bachelor of Science in Computer Science",
+  about_edu_date_2: "毕业时间：2024 年 6 月",
+  about_intro:
+    "我具备从数据采集、建模到业务展示的端到端落地能力，关注可扩展、可复用的工程实现。在实践中，我主要使用 AWS 构建数据管道，结合 Python/SQL 开发 LLM 与机器学习应用，并通过可视化仪表盘输出业务洞察。",
+  about_focus_1: "Python",
+  about_focus_2: "SQL",
+  about_focus_3: "AWS 数据管道",
+  about_focus_4: "LLM 应用开发",
+  about_focus_5: "机器学习",
+  about_focus_6: "BI / 数据可视化",
   nav_home: "首页",
   nav_experience: "实习经历",
   home_hub_title: "经历导航",
