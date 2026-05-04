@@ -151,9 +151,14 @@ const translations = {
 	proj8_title: "Jenkins as a Service (JaaS)",
 	proj8_tag: "DevOps Platform Engineering",
 	proj8_desc:
-	  "Designed an enterprise Jenkins-as-a-Service platform to replace fragmented CI/CD tooling across teams. Standardized pipeline templates, centralized RBAC and audit logging, and planned rollback-oriented release workflows on VMware to improve delivery reliability, security compliance, and operating efficiency.",
-		
-		  skills_title: "SKILLS",
+		  "Designed an enterprise Jenkins-as-a-Service platform to replace fragmented CI/CD tooling across teams. Standardized pipeline templates, centralized RBAC and audit logging, and planned rollback-oriented release workflows on VMware to improve delivery reliability, security compliance, and operating efficiency.",
+
+	proj9_title: "Goal-Conditioned Maze Navigation with Curriculum Learning",
+	proj9_tag: "Reinforcement Learning",
+	proj9_desc:
+		  "Designed and implemented a goal-conditioned RL environment in MuJoCo with Gymnasium wrappers, then trained PPO agents under a progressive curriculum (UMaze -> Medium -> Large). Compared sparse versus dense reward shaping and found distance-based dense rewards can induce local optima in wall-constrained layouts. Built an evaluation harness for reward curves, success-rate tracking, and trajectory analysis, improving hardest-maze success rate from 6% baseline to 38%.",
+			
+			  skills_title: "SKILLS",
 	  
 	contact_title: "CONTACT",
 	btn_email: "Email me",
@@ -242,7 +247,12 @@ const translations = {
 	proj8_title: "Jenkins 即服务平台（JaaS）",
 	proj8_tag: "DevOps 平台工程",
 	proj8_desc:
-		  "面向企业设计 Jenkins as a Service（JaaS）平台，用统一 CI/CD 流程替代分散的 CircleCI/GitLab/GitHub Actions。通过标准化流水线模板、集中式 RBAC 与审计日志、以及面向回滚的发布流程（基于 VMware 运行），提升发布稳定性、安全合规与运维效率。",
+			  "面向企业设计 Jenkins as a Service（JaaS）平台，用统一 CI/CD 流程替代分散的 CircleCI/GitLab/GitHub Actions。通过标准化流水线模板、集中式 RBAC 与审计日志、以及面向回滚的发布流程（基于 VMware 运行），提升发布稳定性、安全合规与运维效率。",
+
+	proj9_title: "Goal-Conditioned Maze Navigation with Curriculum Learning",
+	proj9_tag: "强化学习",
+	proj9_desc:
+			  "在 MuJoCo 中设计并实现 goal-conditioned 强化学习环境，使用自定义 Gymnasium Wrapper 与 PPO 训练 agent，并构建渐进式课程学习路径（UMaze -> Medium -> Large）。系统对比 sparse 与 dense reward shaping，发现基于距离的 dense reward 在有墙场景中会造成 local optima。搭建评估体系用于 reward curve、success rate 和 trajectory 分析，将最难迷宫成功率从 6% baseline 提升至 38%。",
 		skills_title: "技能",
 
 	back_home: "← 返回首页",
@@ -309,22 +319,22 @@ Object.assign(translations.en, {
   experience_page_kicker: "Internship Experience",
   experience_page_title: "AI/LLM Engineering Internship",
   experience_page_desc:
-    "Internship project focused on SEC filing intelligence, multi-dimensional risk scoring, and report automation.",
+    "Built a production-oriented AI risk intelligence platform for SEC 10-K filings with dual-model LLM orchestration, tool-calling agent workflows, and deterministic scoring.",
   exp_company_label: "Company",
   exp_project_label: "Project",
   exp_company: "Amazon Web Service (AWS)",
   exp_role: "AI/LLM Engineering Intern",
   exp_period: "Jan 2026 - Jun 2026",
-  exp_project: "RiskLens AI Intelligent Risk Analytics Platform",
+  exp_project: "RiskLens AI SEC 10-K Intelligence Platform",
   exp_summary:
-    "Designed and implemented an AWS-based data + LLM agent analysis platform for both analyst workflows and consumer-facing insights. Converted unstructured SEC 10-K disclosures into structured risk signals, then delivered cross-year change detection and decision support.",
+    "Architected and delivered RiskLens AI across Cloudflare Pages (frontend), Railway (Python backend), and AWS S3/Textract/Bedrock. Converted unstructured SEC 10-K disclosures into structured risk signals, added deterministic post-processing for reliable scoring, and supported dashboard + agent workflows at scale (76 companies, 348 filings).",
   exp_resp_title: "Key Contributions",
   exp_resp_1:
-    "Led system architecture and core module development. Built the document processing pipeline on AWS (S3, Textract, Bedrock) to parse, clean, and model 10-K unstructured text.",
+    "Built the end-to-end filing pipeline: SEC EDGAR ingestion, HTML parsing with edgartools/sec-parser/BeautifulSoup, PDF fallback via Textract, and Bedrock-based Item 1/1A extraction to produce structured risk JSON for downstream analytics.",
   exp_resp_2:
-    "Designed a rules + LLM hybrid extraction framework and applied prompt engineering to improve risk factor identification, including cross-year NEW/REMOVED change detection and financial statement analysis.",
+    "Implemented a dual-model LLM architecture and ReAct-style tool-calling agent on Bedrock. Used DeepSeek V3 for orchestration and Nova Pro for structured extraction/scoring, with guardrails (iteration limits, context budget, tool-result bounds) to improve stability and controllability.",
   exp_resp_3:
-    "Developed an LLM agent for multi-dimensional risk scoring and automated report generation. Integrated stock and news signals into a dashboard for risk, market, and sentiment correlation analysis.",
+    "Designed a rules + LLM hybrid taxonomy mapper plus deterministic 3D scoring (impact/likelihood/urgency -> priority -> RPI), including low-confidence fallback and partial-failure handling. Enabled cross-year NEW/REMOVED risk comparison and generated automated executive-level reports.",
   exp_link_demo: "Live Demo Link",
   exp_link_github: "Github",
   exp_stack_title: "Core Stack",
@@ -370,22 +380,22 @@ Object.assign(translations.zh, {
   experience_page_kicker: "实习经历",
   experience_page_title: "AI/LLM 工程实习",
   experience_page_desc:
-    "围绕 SEC 10-K 文档智能解析、多维风险评估与自动化报告生成的实习项目。",
+    "围绕 SEC 10-K 的生产级 AI 风险智能项目，聚焦双模型 LLM 编排、多工具 Agent 分析与确定性风险评分。",
   exp_company_label: "公司",
   exp_project_label: "项目",
   exp_company: "亚马逊",
   exp_role: "AI/LLM 工程实习生",
   exp_period: "2026.01 - 2026.06",
-  exp_project: "RiskLens AI 智能风险分析平台",
+  exp_project: "RiskLens AI SEC 10-K 风险智能平台",
   exp_summary:
-    "设计并落地基于 AWS 的数据与 LLM Agent 分析平台（面向 B 端分析师与 C 端用户），将 SEC 10-K 非结构化文本转化为结构化风险数据，并通过跨年度差异识别提供决策支持。",
+    "主导落地 RiskLens AI 全链路架构：Cloudflare Pages 前端、Railway Python 后端、AWS S3/Textract/Bedrock AI 基础设施。将 SEC 10-K 非结构化文本转化为结构化风险信号，并通过确定性后处理提升评分一致性，支撑 76 家公司、348 份 filing 的规模化分析。",
   exp_resp_title: "个人职责",
   exp_resp_1:
-    "主导系统架构设计与核心模块开发，基于 AWS（S3、Textract、Bedrock）搭建数据处理管道，实现 10-K 非结构化文本解析、清洗与结构化建模。",
+    "搭建端到端 filing 数据管道：接入 SEC EDGAR，使用 edgartools/sec-parser/BeautifulSoup 解析 HTML，Textract 兜底解析 PDF，并基于 Bedrock 提取 Item 1/1A 风险，产出结构化风险 JSON。",
   exp_resp_2:
-    "设计规则 + LLM 混合抽取框架，结合 Prompt Engineering 提升风险因子识别效果，实现跨年度差异检测（NEW/REMOVED）及财务报表解析。",
+    "实现双模型 LLM + ReAct 多步工具调用 Agent：DeepSeek V3 负责对话编排与工具调度，Nova Pro 负责结构化抽取与评分；通过迭代上限、上下文预算、tool result 截断等 guardrails 提升稳定性与可控性。",
   exp_resp_3:
-    "开发 LLM Agent 进行多维风险评分与自动化报告生成，融合股票与新闻数据构建可视化仪表盘，完成风险与市场/情绪变化的关联分析。",
+    "设计规则 + LLM 混合 taxonomy 映射与确定性三维评分体系（impact/likelihood/urgency -> priority -> RPI），加入低置信度 fallback 与局部失败标记机制，实现跨年 NEW/REMOVED 风险对比与高管级自动化报告输出。",
   exp_link_demo: "在线演示",
   exp_link_github: "Github",
   exp_stack_title: "核心技术栈",
