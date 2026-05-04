@@ -335,7 +335,7 @@ Object.assign(translations.en, {
     "Implemented a dual-model LLM architecture and ReAct-style tool-calling agent on Bedrock. Used DeepSeek V3 for orchestration and Nova Pro for structured extraction/scoring, with guardrails (iteration limits, context budget, tool-result bounds) to improve stability and controllability.",
   exp_resp_3:
     "Designed a rules + LLM hybrid taxonomy mapper plus deterministic 3D scoring (impact/likelihood/urgency -> priority -> RPI), including low-confidence fallback and partial-failure handling. Enabled cross-year NEW/REMOVED risk comparison and generated automated executive-level reports.",
-  exp_link_demo: "Live Demo Link",
+  exp_link_demo: "Explore Product",
   exp_link_github: "Github",
   exp_stack_title: "Core Stack",
 });
@@ -396,7 +396,7 @@ Object.assign(translations.zh, {
     "实现双模型 LLM + ReAct 多步工具调用 Agent：DeepSeek V3 负责对话编排与工具调度，Nova Pro 负责结构化抽取与评分；通过迭代上限、上下文预算、tool result 截断等 guardrails 提升稳定性与可控性。",
   exp_resp_3:
     "设计规则 + LLM 混合 taxonomy 映射与确定性三维评分体系（impact/likelihood/urgency -> priority -> RPI），加入低置信度 fallback 与局部失败标记机制，实现跨年 NEW/REMOVED 风险对比与高管级自动化报告输出。",
-  exp_link_demo: "在线演示",
+  exp_link_demo: "查看产品",
   exp_link_github: "Github",
   exp_stack_title: "核心技术栈",
 });
