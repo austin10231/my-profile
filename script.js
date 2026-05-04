@@ -407,8 +407,8 @@ Object.assign(translations.zh, {
 const LANG_STORAGE_KEY = "lang";
 let currentLang = "en";
 const resumeByLang = {
-  en: encodeURI("Mutian He Resume.pdf"),
-  zh: encodeURI("何沐天中文简历.pdf")
+  en: encodeURI("Mutian He AI Resume.pdf"),
+  zh: encodeURI("何沐天 AI Resume CN.pdf")
 };
 
 // 把页面上所有 data-i18n 的元素替换文本
