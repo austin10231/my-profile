@@ -60,7 +60,7 @@
 
     <main>
       <section class="section page-hero">
-        <div class="hero-band">
+        <div class="hero-band hero-band--experience">
           <p class="hero-band__kicker" data-i18n="experience_page_kicker">Experience Hub</p>
           <h1 class="hero-band__title" data-i18n="experience_page_title">Industry + Research Experience</h1>
           <p class="hero-band__desc" data-i18n="experience_page_desc">
@@ -69,13 +69,51 @@
         </div>
       </section>
 
-      <section class="section experience">
-        <div class="experience__list">
-          <article class="experience-card" id="industry">
-            <div class="experience-brand">
-              <img src="image/logo.svg" alt="RiskLens AI logo" class="risklens-logo" />
+      <section class="section experience experience-hub">
+        <div class="experience-tabs" role="tablist" aria-label="Experience selector">
+          <article
+            class="experience-tab-card is-active"
+            role="button"
+            tabindex="0"
+            data-experience-target="industry-detail"
+            aria-controls="industry-detail"
+            aria-pressed="true"
+          >
+            <p class="experience-tab-card__kicker" data-i18n="exp_tab_1_kicker">Industry</p>
+            <h2 class="experience-tab-card__title" data-i18n="exp_role">AI/LLM Engineering Intern</h2>
+            <p class="experience-tab-card__meta" data-i18n="exp_tab_1_meta">Amazon Web Service (AWS) · Jan 2026 - Jun 2026</p>
+            <div class="experience-tab-card__links">
+              <a href="https://risklens.pages.dev/" target="_blank" rel="noreferrer" class="link" data-i18n="exp_link_demo">
+                Explore Product
+              </a>
+              <span class="experience-card__divider">|</span>
+              <a href="https://github.com/austin10231/10k-risk-evolution.git" target="_blank" rel="noreferrer" class="link" data-i18n="exp_link_github">
+                Github
+              </a>
             </div>
+          </article>
 
+          <article
+            class="experience-tab-card"
+            role="button"
+            tabindex="0"
+            data-experience-target="research-detail"
+            aria-controls="research-detail"
+            aria-pressed="false"
+          >
+            <p class="experience-tab-card__kicker" data-i18n="exp_tab_2_kicker">Research</p>
+            <h2 class="experience-tab-card__title" data-i18n="exp2_role">Research Assistant</h2>
+            <p class="experience-tab-card__meta" data-i18n="exp_tab_2_meta">Santa Clara University · May 2026 - Present</p>
+            <div class="experience-tab-card__links">
+              <a href="https://www.scu.edu/" target="_blank" rel="noreferrer" class="link" data-i18n="exp_tab_2_link">
+                University Lab Context
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="experience-detail-shell">
+          <article class="experience-card experience-detail-panel is-active" id="industry-detail">
             <header class="experience-card__head">
               <h2 class="experience-card__role" data-i18n="exp_role">AI/LLM Engineering Intern</h2>
               <p class="experience-card__period" data-i18n="exp_period">Jan 2026 - Jun 2026</p>
@@ -90,30 +128,6 @@
                 <p class="experience-meta-item__label" data-i18n="exp_project_label">Project</p>
                 <p class="experience-meta-item__value" data-i18n="exp_project">RiskLens AI SEC 10-K Intelligence Platform</p>
               </div>
-            </div>
-
-            <div class="experience-card__links">
-              <a
-                href="https://risklens.pages.dev/"
-                target="_blank"
-                rel="noreferrer"
-                class="link"
-                data-i18n="exp_link_demo"
-              >
-                <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-                Explore Product
-              </a>
-              <span class="experience-card__divider">|</span>
-              <a
-                href="https://github.com/austin10231/10k-risk-evolution.git"
-                target="_blank"
-                rel="noreferrer"
-                class="link"
-                data-i18n="exp_link_github"
-              >
-                <i aria-hidden="true" class="fab fa-github"></i>
-                Github
-              </a>
             </div>
 
             <p class="experience-card__summary" data-i18n="exp_summary"></p>
@@ -137,11 +151,7 @@
             </div>
           </article>
 
-          <article class="experience-card" id="research">
-            <div class="experience-brand experience-brand--icon">
-              <i aria-hidden="true" class="fas fa-flask-vial"></i>
-            </div>
-
+          <article class="experience-card experience-detail-panel" id="research-detail" hidden>
             <header class="experience-card__head">
               <h2 class="experience-card__role" data-i18n="exp2_role">Research Assistant</h2>
               <p class="experience-card__period" data-i18n="exp2_period">May 2026 - Present</p>

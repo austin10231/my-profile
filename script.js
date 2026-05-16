@@ -298,7 +298,7 @@ Object.assign(translations.en, {
   nav_experience: "EXPERIENCE",
   home_hub_title: "CAREER HUB",
   home_hub_intro:
-    "Dive into my industry and research experience, plus full project archive, through dedicated pages.",
+    "Dive into my industry and research experience plus full project archive through dedicated pages.",
   home_exp_eyebrow: "Experience Spotlight",
   home_exp_title: "Industry + Research Journey",
   home_exp_desc:
@@ -322,6 +322,11 @@ Object.assign(translations.en, {
   experience_page_title: "Industry + Research Experience",
   experience_page_desc:
     "A unified view of my product-facing AI engineering internship and current research assistant work on reliable LLM agents.",
+  exp_tab_1_kicker: "Industry",
+  exp_tab_1_meta: "Amazon Web Service (AWS) · Jan 2026 - Jun 2026",
+  exp_tab_2_kicker: "Research",
+  exp_tab_2_meta: "Santa Clara University · May 2026 - Present",
+  exp_tab_2_link: "University Lab Context",
   exp_company_label: "Company",
   exp_project_label: "Project",
   exp_company: "Amazon Web Service (AWS)",
@@ -411,6 +416,11 @@ Object.assign(translations.zh, {
   experience_page_title: "产业 + 研究经历",
   experience_page_desc:
     "统一展示我在产业实习与研究助理两条路径上的 AI 能力实践：一条偏产品落地，一条偏模型可靠性研究。",
+  exp_tab_1_kicker: "产业",
+  exp_tab_1_meta: "亚马逊 · 2026.01 - 2026.06",
+  exp_tab_2_kicker: "研究",
+  exp_tab_2_meta: "Santa Clara University · 2026.05 - 至今",
+  exp_tab_2_link: "学校与研究场景",
   exp_company_label: "公司",
   exp_project_label: "项目",
   exp_company: "亚马逊",
@@ -634,6 +644,109 @@ function initEducationLogos() {
   });
 }
 
+function initExperienceTabs() {
+  const tabs = Array.from(document.querySelectorAll(".experience-tab-card[data-experience-target]"));
+  const panels = Array.from(document.querySelectorAll(".experience-detail-panel"));
+  const shell = document.querySelector(".experience-detail-shell");
+
+  if (!tabs.length || !panels.length || !shell) return;
+
+  const hashToPanel = {
+    industry: "industry-detail",
+    research: "research-detail",
+    "industry-detail": "industry-detail",
+    "research-detail": "research-detail",
+  };
+
+  const normalizeTarget = (value) => hashToPanel[(value || "").replace("#", "")] || null;
+
+  const setTabUi = (activePanelId) => {
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.experienceTarget === activePanelId;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  };
+
+  let activePanelId =
+    normalizeTarget(window.location.hash) ||
+    tabs.find((tab) => tab.classList.contains("is-active"))?.dataset.experienceTarget ||
+    panels[0].id;
+
+  panels.forEach((panel) => {
+    const isActive = panel.id === activePanelId;
+    panel.hidden = !isActive;
+    panel.classList.toggle("is-active", isActive);
+  });
+  setTabUi(activePanelId);
+
+  const swapPanel = (nextPanelId, updateHash = true) => {
+    if (!nextPanelId || nextPanelId === activePanelId) return;
+
+    const current = document.getElementById(activePanelId);
+    const next = document.getElementById(nextPanelId);
+    if (!next) return;
+
+    const startHeight = shell.getBoundingClientRect().height || (current ? current.offsetHeight : 0);
+
+    if (current) {
+      current.hidden = true;
+      current.classList.remove("is-active");
+    }
+
+    next.hidden = false;
+    next.classList.add("is-active", "entering");
+    const endHeight = next.offsetHeight;
+
+    if (!reducedMotionQuery.matches) {
+      shell.style.height = `${startHeight}px`;
+      shell.style.overflow = "hidden";
+      shell.style.transition = "height 460ms cubic-bezier(0.22, 0.95, 0.24, 1)";
+      requestAnimationFrame(() => {
+        shell.style.height = `${endHeight}px`;
+      });
+
+      const clearHeight = () => {
+        shell.style.height = "";
+        shell.style.overflow = "";
+        shell.style.transition = "";
+        shell.removeEventListener("transitionend", clearHeight);
+      };
+      shell.addEventListener("transitionend", clearHeight);
+    }
+
+    window.setTimeout(() => {
+      next.classList.remove("entering");
+    }, 500);
+
+    activePanelId = nextPanelId;
+    setTabUi(activePanelId);
+
+    if (updateHash) {
+      const hashValue = nextPanelId === "research-detail" ? "research" : "industry";
+      window.history.replaceState(null, "", `#${hashValue}`);
+    }
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      swapPanel(tab.dataset.experienceTarget);
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      swapPanel(tab.dataset.experienceTarget);
+    });
+  });
+
+  window.addEventListener("hashchange", () => {
+    const target = normalizeTarget(window.location.hash);
+    if (target) swapPanel(target, false);
+  });
+}
+
 function initRevealAnimations() {
   const selectors = [
     ".about__seeking-badge",
@@ -766,6 +879,7 @@ function initInteractions() {
   initPageTransitions();
   initStardustTrail();
   initEducationLogos();
+  initExperienceTabs();
   initRevealAnimations();
   initTiltCards();
   initMagneticButtons();
