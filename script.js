@@ -310,6 +310,9 @@ Object.assign(translations.en, {
   home_proj_title: "Personal Projects",
   home_proj_desc:
     "Explore retained projects spanning multimodal retrieval, ML systems, data pipelines, and analytics.",
+  home_proj_chip_1: "Machine Learning",
+  home_proj_chip_2: "Data Engineering",
+  home_proj_chip_3: "Analytics",
   home_proj_btn: "Open Projects",
   projects_page_kicker: "Selected Work",
   projects_page_title: "Project Portfolio",
@@ -406,6 +409,9 @@ Object.assign(translations.zh, {
   home_proj_title: "个人项目",
   home_proj_desc:
     "保留了其余项目，涵盖多模态检索、ML 系统、数据管道与分析可视化。",
+  home_proj_chip_1: "机器学习",
+  home_proj_chip_2: "数据工程",
+  home_proj_chip_3: "数据分析",
   home_proj_btn: "查看 Projects",
   projects_page_kicker: "项目作品集",
   projects_page_title: "Projects 项目展示",
