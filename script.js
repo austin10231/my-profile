@@ -307,7 +307,7 @@ Object.assign(translations.en, {
   home_exp_track_research: "Research: SCU RA",
   home_exp_btn: "Open Experience Hub",
   home_proj_eyebrow: "Project Archive",
-  home_proj_title: "Machine Learning & Data Engineering Projects",
+  home_proj_title: "Personal Projects",
   home_proj_desc:
     "Explore retained projects spanning multimodal retrieval, ML systems, data pipelines, and analytics.",
   home_proj_btn: "Open Projects",
@@ -403,7 +403,7 @@ Object.assign(translations.zh, {
   home_exp_track_research: "研究向：SCU RA",
   home_exp_btn: "查看 Experience Hub",
   home_proj_eyebrow: "项目归档",
-  home_proj_title: "机器学习与数据工程项目",
+  home_proj_title: "个人项目",
   home_proj_desc:
     "保留了其余项目，涵盖多模态检索、ML 系统、数据管道与分析可视化。",
   home_proj_btn: "查看 Projects",
