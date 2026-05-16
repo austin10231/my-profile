@@ -296,7 +296,7 @@ Object.assign(translations.en, {
   about_focus_6: "BI / Dashboarding",
   nav_home: "HOME",
   nav_experience: "EXPERIENCE",
-  home_hub_title: "CAREER HUB",
+  home_hub_title: "EXPERIENCE",
   home_hub_intro:
     "Dive into my industry and research experience plus full project archive through dedicated pages.",
   home_exp_eyebrow: "Experience Spotlight",
@@ -396,7 +396,7 @@ Object.assign(translations.zh, {
   about_focus_6: "BI / 数据可视化",
   nav_home: "首页",
   nav_experience: "经历",
-  home_hub_title: "经历导航",
+  home_hub_title: "经历",
   home_hub_intro: "点击进入独立页面，查看我的产业与研究经历，以及完整项目集。",
   home_exp_eyebrow: "经历亮点",
   home_exp_title: "产业 + 研究双轨经历",
