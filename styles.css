@@ -611,7 +611,7 @@ main {
 }
 
 .gateway-card__tracks {
-  margin-top: 0.95rem;
+  margin-top: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -633,9 +633,34 @@ main {
   background: rgba(41, 120, 181, 0.08);
 }
 
-.gateway-card__btn {
+.gateway-card__footer {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.gateway-card__footer--single {
+  justify-content: flex-end;
+  min-height: 5.2rem;
+}
+
+.gateway-card__mini-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  padding-bottom: 0.18rem;
+}
+
+.gateway-card__btn {
+  margin-top: 0;
   display: inline-block;
+}
+
+.gateway-card__btn--compact {
+  width: auto;
+  min-width: 200px;
 }
 
 /* 以下开始project部分 */
@@ -807,12 +832,12 @@ main {
 .experience-tab-card {
   position: relative;
   overflow: hidden;
-  padding: 1.15rem 1.2rem;
+  padding: 0.92rem 1rem 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(41, 120, 181, 0.24);
-  background: linear-gradient(130deg, rgba(41, 120, 181, 0.08), rgba(41, 120, 181, 0.02));
+  border: 1px solid rgba(41, 120, 181, 0.3);
+  background: linear-gradient(130deg, rgba(41, 120, 181, 0.06), rgba(41, 120, 181, 0.01));
   cursor: pointer;
-  transition: transform 280ms ease, border-color 280ms ease, box-shadow 320ms ease, background 320ms ease;
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 300ms ease, background 300ms ease;
 }
 
 .experience-tab-card::after {
@@ -826,14 +851,14 @@ main {
 
 .experience-tab-card:hover,
 .experience-tab-card:focus {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: rgba(41, 120, 181, 0.44);
 }
 
 .experience-tab-card.is-active {
-  border-color: rgba(78, 178, 255, 0.72);
-  box-shadow: 0 14px 30px rgba(66, 152, 216, 0.18), inset 0 0 0 1px rgba(126, 223, 255, 0.24);
-  background: linear-gradient(135deg, rgba(41, 120, 181, 0.18), rgba(80, 171, 235, 0.08));
+  border-color: rgba(78, 178, 255, 0.68);
+  box-shadow: 0 10px 24px rgba(66, 152, 216, 0.12), inset 0 0 0 1px rgba(126, 223, 255, 0.2);
+  background: linear-gradient(135deg, rgba(41, 120, 181, 0.14), rgba(80, 171, 235, 0.05));
 }
 
 .experience-tab-card.is-active::after {
@@ -849,22 +874,37 @@ main {
 }
 
 .experience-tab-card__title {
-  margin-top: 0.38rem;
-  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
 }
 
 .experience-tab-card__meta {
-  margin-top: 0.45rem;
+  margin-top: 0.28rem;
   line-height: 1.55;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 .experience-tab-card__links {
-  margin-top: 0.72rem;
+  margin-top: 0.56rem;
   display: flex;
   align-items: center;
   gap: 0.48rem;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
+}
+
+.experience-tab-card__hint {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--clr-primary);
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.experience-tab-card.is-active .experience-tab-card__hint {
+  opacity: 1;
 }
 
 .experience-detail-shell {
