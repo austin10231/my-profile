@@ -298,12 +298,14 @@ Object.assign(translations.en, {
   nav_experience: "EXPERIENCE",
   home_hub_title: "CAREER HUB",
   home_hub_intro:
-    "Dive into my internship impact and full project archive through dedicated pages.",
-  home_exp_eyebrow: "Internship Spotlight",
-  home_exp_title: "RiskLens AI @ Amazon Web Service (AWS)",
+    "Dive into my industry and research experience, plus full project archive, through dedicated pages.",
+  home_exp_eyebrow: "Experience Spotlight",
+  home_exp_title: "Industry + Research Journey",
   home_exp_desc:
-    "Built an AWS + LLM agent pipeline that transforms SEC 10-K filings into decision-ready risk intelligence.",
-  home_exp_btn: "Open Experience",
+    "From AWS product-facing LLM engineering to SCU research on reliable AI agents for high-stakes decision support.",
+  home_exp_track_industry: "Industry: AWS Internship",
+  home_exp_track_research: "Research: SCU RA",
+  home_exp_btn: "Open Experience Hub",
   home_proj_eyebrow: "Project Archive",
   home_proj_title: "Machine Learning & Data Engineering Projects",
   home_proj_desc:
@@ -315,11 +317,11 @@ Object.assign(translations.en, {
     "A curated archive of my machine learning, data engineering, and analytics builds.",
   projects_archive_title: "All Projects",
   projects_page_strip:
-    "Want to see RiskLens AI in internship context? Visit Experience →",
-  experience_page_kicker: "Internship Experience",
-  experience_page_title: "AI/LLM Engineering Internship",
+    "Want to see both AWS and RA context? Visit Experience →",
+  experience_page_kicker: "Experience Hub",
+  experience_page_title: "Industry + Research Experience",
   experience_page_desc:
-    "Built a production-oriented AI risk intelligence platform for SEC 10-K filings with dual-model LLM orchestration, tool-calling agent workflows, and deterministic scoring.",
+    "A unified view of my product-facing AI engineering internship and current research assistant work on reliable LLM agents.",
   exp_company_label: "Company",
   exp_project_label: "Project",
   exp_company: "Amazon Web Service (AWS)",
@@ -338,6 +340,32 @@ Object.assign(translations.en, {
   exp_link_demo: "Explore Product",
   exp_link_github: "Github",
   exp_stack_title: "Core Stack",
+  exp_stack_1: "AWS (S3, Textract, Bedrock)",
+  exp_stack_2: "Python",
+  exp_stack_3: "Prompt Engineering",
+  exp_stack_4: "LLM Agent",
+  exp_stack_5: "Financial NLP",
+  exp2_role: "Research Assistant",
+  exp2_period: "May 2026 - Present",
+  exp2_org_label: "Organization",
+  exp2_org: "Santa Clara University",
+  exp2_focus_label: "Research Focus",
+  exp2_focus: "Reliable LLM Agents for Clinical Decision Support",
+  exp2_summary:
+    "Researching how large language models can function as reliable AI agents for complex reasoning and decision-support tasks using real-world EHR and structured datasets.",
+  exp2_resp_title: "Key Contributions",
+  exp2_resp_1:
+    "Evaluated open-source LLMs (7B-70B) across reasoning, planning, and risk assessment tasks using EHR-based evaluation workflows and multi-step agent interactions.",
+  exp2_resp_2:
+    "Designed prompt engineering and agent evaluation frameworks to benchmark reasoning quality, hallucination control, tool usage, and response reliability.",
+  exp2_resp_3:
+    "Conducted comparative analysis across model architectures (Dense vs MoE), parameter scales, and prompting strategies to study agent performance and consistency.",
+  exp2_stack_title: "Core Stack",
+  exp2_stack_1: "Open-Source LLMs (7B-70B)",
+  exp2_stack_2: "Prompt Engineering",
+  exp2_stack_3: "Agent Evaluation",
+  exp2_stack_4: "EHR-Structured Datasets",
+  exp2_stack_5: "Reasoning Benchmarking",
 });
 
 Object.assign(translations.zh, {
@@ -358,14 +386,16 @@ Object.assign(translations.zh, {
   about_focus_5: "机器学习",
   about_focus_6: "BI / 数据可视化",
   nav_home: "首页",
-  nav_experience: "实习经历",
+  nav_experience: "经历",
   home_hub_title: "经历导航",
-  home_hub_intro: "点击进入独立页面，查看我的实习成果与完整项目集。",
-  home_exp_eyebrow: "实习亮点",
-  home_exp_title: "RiskLens AI @ 亚马逊",
+  home_hub_intro: "点击进入独立页面，查看我的产业与研究经历，以及完整项目集。",
+  home_exp_eyebrow: "经历亮点",
+  home_exp_title: "产业 + 研究双轨经历",
   home_exp_desc:
-    "基于 AWS + LLM Agent 构建 10-K 风险智能分析平台，把非结构化文本转成可决策风险洞察。",
-  home_exp_btn: "查看 Experience",
+    "从 AWS 产品化 LLM 工程实践，到 SCU 可靠性 AI Agent 研究，形成完整能力闭环。",
+  home_exp_track_industry: "产业向：AWS 实习",
+  home_exp_track_research: "研究向：SCU RA",
+  home_exp_btn: "查看 Experience Hub",
   home_proj_eyebrow: "项目归档",
   home_proj_title: "机器学习与数据工程项目",
   home_proj_desc:
@@ -376,11 +406,11 @@ Object.assign(translations.zh, {
   projects_page_desc:
     "这里保留了其余项目，覆盖机器学习、数据工程与数据分析方向。",
   projects_archive_title: "全部项目",
-  projects_page_strip: "想看 RiskLens AI 的实习版叙事？前往 Experience →",
-  experience_page_kicker: "实习经历",
-  experience_page_title: "AI/LLM 工程实习",
+  projects_page_strip: "想看 AWS + RA 双轨经历叙事？前往 Experience →",
+  experience_page_kicker: "经历总览",
+  experience_page_title: "产业 + 研究经历",
   experience_page_desc:
-    "围绕 SEC 10-K 的生产级 AI 风险智能项目，聚焦双模型 LLM 编排、多工具 Agent 分析与确定性风险评分。",
+    "统一展示我在产业实习与研究助理两条路径上的 AI 能力实践：一条偏产品落地，一条偏模型可靠性研究。",
   exp_company_label: "公司",
   exp_project_label: "项目",
   exp_company: "亚马逊",
@@ -399,6 +429,32 @@ Object.assign(translations.zh, {
   exp_link_demo: "查看产品",
   exp_link_github: "Github",
   exp_stack_title: "核心技术栈",
+  exp_stack_1: "AWS（S3、Textract、Bedrock）",
+  exp_stack_2: "Python",
+  exp_stack_3: "Prompt Engineering",
+  exp_stack_4: "LLM Agent",
+  exp_stack_5: "金融 NLP",
+  exp2_role: "研究助理（Research Assistant）",
+  exp2_period: "2026.05 - 至今",
+  exp2_org_label: "机构",
+  exp2_org: "Santa Clara University",
+  exp2_focus_label: "研究方向",
+  exp2_focus: "面向临床决策支持的可靠性 LLM Agent",
+  exp2_summary:
+    "围绕真实世界 EHR 与结构化数据集，研究大语言模型在复杂推理与决策支持任务中如何成为更可靠的 AI Agent。",
+  exp2_resp_title: "个人职责",
+  exp2_resp_1:
+    "基于 EHR 评测流程与多步 Agent 交互任务，对开源 LLM（7B-70B）在推理、规划、风险评估等维度进行系统评测。",
+  exp2_resp_2:
+    "设计 Prompt Engineering 与 Agent 评测框架，量化比较推理质量、幻觉控制、工具使用效果与响应可靠性。",
+  exp2_resp_3:
+    "围绕模型架构（Dense vs MoE）、参数规模与提示策略开展对比实验，分析 Agent 性能与一致性差异。",
+  exp2_stack_title: "核心技术栈",
+  exp2_stack_1: "开源 LLM（7B-70B）",
+  exp2_stack_2: "Prompt Engineering",
+  exp2_stack_3: "Agent Evaluation",
+  exp2_stack_4: "EHR 结构化数据集",
+  exp2_stack_5: "推理基准评测",
 });
 // -------------------- i18n logic --------------------
 // ---------------- i18n logic ----------------
